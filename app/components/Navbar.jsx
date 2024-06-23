@@ -1,6 +1,5 @@
 import Image from "next/image";
 import Link from "next/link";
-import NavLogo from '@/public/heroimg.png'
 import { HiMenuAlt1 } from "react-icons/hi";
 import { FiSearch } from "react-icons/fi";
 
