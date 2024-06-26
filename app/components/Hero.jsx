@@ -42,7 +42,10 @@ export default function Hero() {
                     <p className='py-8 text-md'>Show case your talent and stand a chance to win big.
                     <br className='hidden md:block'/> Will you be the next street champion?</p>
                     <div>
-                        <button onClick={toggleModal} className='py-2 px-6 border border-[#52CF50]'>Register Now</button>
+                        <button onClick={toggleModal} className='bg-green-500 text-white py-2 px-6 rounded-md md:hidden'>Register Now</button>
+                        <button className="hidden md:block py-2 px-6 border border-[#52CF50]">
+                            Register Now
+                        </button>
                     </div>
                 </div>
                 <div className='hidden md:block w-6/12'>
@@ -50,7 +53,7 @@ export default function Hero() {
                 </div>
                 {/* <FormComponent toggleModal={toggleModal}/> */}
                 {openModal ? (
-                    <div className="w-full">
+                    <div className="md:hidden w-full">
                         {PageDisplay()}
                     </div>
                 ):(
