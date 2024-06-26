@@ -36,7 +36,7 @@ export default function Hero() {
 
     return (
         <div className="w-full bg-black text-white h-screen flex justify-center items-center pt-0 md:pt-16">
-            <div className="relative w-11/12 mx-auto bg-black flex flex-col md:justify-between h-5/6 justify-center items-center">
+            <div className="relative w-11/12 mx-auto bg-black flex flex-col md:flex-row md:justify-between h-5/6 justify-center items-center">
                 <div className='flex flex-col items-center text-center md:text-left md:items-start'>
                     <Image src={LogoImg} className='w-full' alt='' height={100} width={100} />
                     <p className='py-8 text-md'>Show case your talent and stand a chance to win big.
