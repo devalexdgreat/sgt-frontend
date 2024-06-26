@@ -1,7 +1,7 @@
 import { FaInstagram, FaRegUser, FaTiktok } from "react-icons/fa6";
 import { MdOutlineMail, MdOutlinePhoneEnabled } from "react-icons/md";
 
-export default function SignupForm() {
+export default function SignupForm({ handleNext }) {
     return (
         <div className="w-full bg-white text-black rounded-md">
             <form>
@@ -51,7 +51,7 @@ export default function SignupForm() {
                         </div>
                     </div>
                     <div className="mb-5 mt-3">
-                        <button type="submit" className="bg-[#52CF50] text-white w-full py-2 px-6 rounded-md">Continue</button>
+                        <button onClick={handleNext} className="bg-[#52CF50] text-white w-full py-2 px-6 rounded-md">Continue</button>
                     </div>
                 </div>
             </form>

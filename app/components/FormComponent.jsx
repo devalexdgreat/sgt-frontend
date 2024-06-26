@@ -1,17 +1,29 @@
 'use client'
-import SignupForm from "./SignupForm";
+import { useState } from "react";
+import RegForm from "./RegForm";
+import PayForm from "./PayForm";
 
 export default function FormComponent() {
 
-    const [openModal, setOpenmodal] = usestate(false);
+    const [openModal, setOpenmodal] = useState(false);
 
-    const toggleModal = () => {
-        setOpenmodal(prevOpenModal => !prevOpenModal);
-    };
+    const PageDisplay = () => {
+        if(page === 0) {
+            return <RegForm />
+        } else if(page === 1) {
+            return <PayForm />
+        }
+    }
 
     return (
-        <div className="w-full bg-transparent flex justify-center items-center h-screen">
-            <SignupForm />
+        <div className="w-full">
+            {openModal ? (
+                <div className="w-full">
+                    {PageDisplay()}
+                </div>
+            ):(
+                <div className="hidden"></div>
+            )}
         </div>
     );
 }
