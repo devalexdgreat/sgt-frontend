@@ -47,7 +47,7 @@ export default function Navbar() {
                             <Link href={'/contestants'} className="">Contestants</Link>
                             <Link href={'/gallery'} className="">Gallery</Link>
                         </div>
-                        <div className="text-center w-full flex flex-col justify-center gap-6">
+                        <div className="text-center w-full flex flex-col justify-center gap-6 mb-12">
                             <p>Come show your talent and win grand prizes</p>
                             <div className="w-full flex justify-center">
                                 <Link href={'/signup'} className="border border-[#52CF50] text-white py-2 px-6 w-full text-center">Sign-up</Link>
