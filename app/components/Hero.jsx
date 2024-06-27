@@ -7,13 +7,15 @@ import { useState } from "react";
 import RegForm from "./RegForm";
 import PayForm from "./PayForm";
 import NoSeasonCard from "./NoSeasonCard";
+import NoSeasonPcCard from "./NoSeasonPcCard";
 
 export default function Hero({ session }) {
+    
     const [openModal, setOpenmodal] = useState(false);
     const [page, setPage] = useState(0);
     const [isSeasonAvail, setIsSeasonAvail] = useState(true);
     const [openNoModal, setOpenNoModal] = useState(false);
-    console.log(session.currentSeason.acceptance);
+
     const toggleNoModal = () => {
         setOpenNoModal(prevOpenNoModal => !prevOpenNoModal);
     };
@@ -64,7 +66,11 @@ export default function Hero({ session }) {
                     </div>
                 </div>
                 <div className='hidden md:block w-6/12'>
-                    <SignupForm />
+                    {session === null ? (
+                        <NoSeasonPcCard />
+                    ):(
+                        <SignupForm />
+                    )}
                 </div>
                 <NoSeasonCard openNoModal={openNoModal} toggleNoModal={toggleNoModal} />
                 {openModal ? (
