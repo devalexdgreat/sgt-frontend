@@ -3,16 +3,20 @@ import Image from "next/image";
 import LogoImg from '@/public/hero.png';
 import Link from 'next/link';
 import SignupForm from './SignupForm';
-import { GoArrowLeft } from "react-icons/go";
 import { useState } from "react";
-import FormComponent from "./FormComponent";
 import RegForm from "./RegForm";
 import PayForm from "./PayForm";
+import NoSeasonCard from "./NoSeasonCard";
 
-export default function Hero() {
-
+export default function Hero({ session }) {
     const [openModal, setOpenmodal] = useState(false);
     const [page, setPage] = useState(0);
+    const [isSeasonAvail, setIsSeasonAvail] = useState(true);
+    const [openNoModal, setOpenNoModal] = useState(false);
+    console.log(session.currentSeason.acceptance);
+    const toggleNoModal = () => {
+        setOpenNoModal(prevOpenNoModal => !prevOpenNoModal);
+    };
 
     const toggleModal = () => {
         setOpenmodal(prevOpenModal => !prevOpenModal);
@@ -34,15 +38,26 @@ export default function Hero() {
         setPage((currPage) => currPage - 1);
     }
 
+    const handleRegister = () => {
+        if(session === null || session.currentSeason.acceptance === false) {
+            setOpenNoModal(true);
+        } else {
+            toggleModal();
+        }
+    }
+
     return (
-        <div className="w-full bg-black text-white h-screen flex justify-center items-center pt-0 md:pt-16">
-            <div className="relative w-11/12 mx-auto bg-black flex flex-col md:flex-row md:justify-between h-5/6 justify-center items-center">
+        <div className="w-full hero-bg text-white h-screen flex justify-center items-center pt-0 md:pt-16 overflow-hidden">
+            <div className="relative w-11/12 mx-auto flex flex-col md:flex-row md:justify-between h-5/6 justify-center items-center">
+
+            {/* <div class="-z-10 absolute bottom-0 left-[-20%] right-0 top-[-10%] h-[500px] w-[500px] rounded-full bg-[radial-gradient(circle_farthest-side,green,rgba(255,255,255,0))]"></div><div class="absolute bottom-0 right-[-20%] top-[-10%] h-[500px] w-[500px] rounded-full bg-[radial-gradient(circle_farthest-side,green,rgba(255,255,255,0))]"></div> */}
+
                 <div className='flex flex-col items-center text-center md:text-left md:items-start'>
                     <Image src={LogoImg} className='w-full' alt='' height={100} width={100} />
                     <p className='py-8 text-md'>Show case your talent and stand a chance to win big.
                     <br className='hidden md:block'/> Will you be the next street champion?</p>
                     <div>
-                        <button onClick={toggleModal} className='bg-[#52CF50] text-black py-2 px-6 rounded-md md:hidden'>Register Now</button>
+                        <button onClick={handleRegister} className='bg-[#52CF50] text-black py-2 px-6 rounded-md md:hidden'>Register Now</button>
                         <button className="hidden md:block py-2 px-6 border border-[#52CF50]">
                             Register Now
                         </button>
@@ -51,7 +66,7 @@ export default function Hero() {
                 <div className='hidden md:block w-6/12'>
                     <SignupForm />
                 </div>
-                {/* <FormComponent toggleModal={toggleModal}/> */}
+                <NoSeasonCard openNoModal={openNoModal} toggleNoModal={toggleNoModal} />
                 {openModal ? (
                     <div className="md:hidden w-full">
                         {PageDisplay()}

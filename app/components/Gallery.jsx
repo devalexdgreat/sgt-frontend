@@ -13,7 +13,7 @@ import imageEle from '@/public/f64.png';
 
 export default function Gallery() {
     return (
-        <div className="w-full">
+        <div className="w-full" id="gallery">
             <div className="w-11/12 mx-auto">
                 <div className="text-center md:text-left">
                     <h1 className="font-bold text-xl">Our Gallery</h1>

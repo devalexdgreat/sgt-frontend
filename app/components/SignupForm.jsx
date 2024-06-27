@@ -50,6 +50,12 @@ export default function SignupForm({ handleNext }) {
                             <input type="text" placeholder="e.g dance, sing..." className="py-2 md:py-0.5 w-full outline-none ps-1" />
                         </div>
                     </div>
+                    <div className="flex flex-col gap-2">
+                        <label className="font-semibold">Performance Type</label>
+                        <div className="border border-black flex justify-between items-center px-1">
+                            <input type="text" placeholder="e.g dance, sing..." className="py-2 md:py-0.5 w-full outline-none ps-1" />
+                        </div>
+                    </div>
                     <div className="mb-5 mt-3">
                         <button onClick={handleNext} className="bg-[#52CF50] text-white w-full py-2 px-6 rounded-md">Continue</button>
                     </div>

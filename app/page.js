@@ -3,11 +3,16 @@ import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import ContestantsSection from "./components/ContestantsSection";
 import Gallery from "./components/Gallery";
+import useFetch from "@/utils/useFetch";
 
-export default function Home() {
+export default async function Home() {
+  
+  const session = await useFetch(`seasons/current`);
+  console.log(session);
+
   return (
     <main>
-      <Hero />
+      <Hero session={session} />
       <ContestantsSection />
       <Gallery />
     </main>

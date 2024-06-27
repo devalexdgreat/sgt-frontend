@@ -1,6 +1,6 @@
 'use client';
 import Image from "next/image";
-import LogoImg from '@/public/hero.png';
+import LogoImg from '@/public/logobg.png';
 import Link from "next/link";
 import { HiMenuAlt1 } from "react-icons/hi";
 import { FiSearch } from "react-icons/fi";
@@ -17,7 +17,7 @@ export default function Navbar() {
     };
 
     return (
-        <div className="w-full bg-black text-white absolute top-0">
+        <div className="w-full bg-transparent text-white absolute top-0">
             <div className="w-11/12 mx-auto flex justify-between items-center py-6 md:py-3">
                 <Link href={'/'} className="hidden md:block">
                     <Image src={LogoImg} height={100} width={100} className="" alt="" />
@@ -26,8 +26,8 @@ export default function Navbar() {
                 <button className="md:hidden"><FiSearch className="h-6 w-6" /></button>
                 <div className="hidden w-6/12 md:flex justify-between">
                     <div className="flex gap-20">
-                        <Link href={'/contestants'} className="">Contestants</Link>
-                        <Link href={'/gallery'} className="">Gallery</Link>
+                        <Link href={'#contestants'} className="">Contestants</Link>
+                        <Link href={'#gallery'} className="">Gallery</Link>
                     </div>
                     <div>
                         <Link href={'/signup'} className="border border-[#52CF50] text-white py-2 px-6">Sign-up</Link>
@@ -44,13 +44,13 @@ export default function Navbar() {
                     </div>
                     <div className="h-5/6 flex flex-col justify-between w-9/12">
                         <div className="flex flex-col gap-8 w-full mx-auto">
-                            <Link href={'/contestants'} className="">Contestants</Link>
-                            <Link href={'/gallery'} className="">Gallery</Link>
+                            <Link href={'#contestants'} className="">Contestants</Link>
+                            <Link href={'#gallery'} className="">Gallery</Link>
                         </div>
                         <div className="text-center w-full flex flex-col justify-center gap-6 mb-12">
                             <p>Come show your talent and win grand prizes</p>
                             <div className="w-full flex justify-center">
-                                <Link href={'/signup'} className="border border-[#52CF50] text-white py-2 px-6 w-full text-center">Sign-up</Link>
+                                <button href={'/signup'} className="border border-[#52CF50] text-white py-2 px-6 w-full text-center">Sign-up</button>
                             </div>
                             <div className="flex justify-center items-center gap-3">
                                 <Link href={'#'} className=""><FaFacebookF /></Link>

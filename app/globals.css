@@ -7,3 +7,9 @@
     text-wrap: balance;
   }
 }
+
+.hero-bg {
+  background-image: url(/herobg.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+}

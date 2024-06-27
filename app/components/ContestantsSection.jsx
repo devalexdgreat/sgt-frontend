@@ -5,7 +5,7 @@ import ContestantImg from '@/public/conte.png';
 
 export default function ContestantsSection() {
     return (
-        <div className="w-full">
+        <div className="w-full" id="contestants">
             <div className="w-11/12 mx-auto">
                 <div className="w-full flex justify-between mt-8">
                     <div className="md:hidden w-full text-center flex items-center justify-center">
