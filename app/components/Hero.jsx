@@ -52,11 +52,15 @@ export default function Hero({ session }) {
         <div className="w-full hero-bg text-white h-screen flex justify-center items-center pt-0 md:pt-16 overflow-hidden">
             <div className="relative w-11/12 mx-auto flex flex-col md:flex-row md:justify-between h-5/6 justify-center items-center">
 
-            {/* <div class="-z-10 absolute bottom-0 left-[-20%] right-0 top-[-10%] h-[500px] w-[500px] rounded-full bg-[radial-gradient(circle_farthest-side,green,rgba(255,255,255,0))]"></div><div class="absolute bottom-0 right-[-20%] top-[-10%] h-[500px] w-[500px] rounded-full bg-[radial-gradient(circle_farthest-side,green,rgba(255,255,255,0))]"></div> */}
-
                 <div className='flex flex-col items-center text-center md:text-left md:items-start'>
                     <Image src={LogoImg} className='w-full' alt='' height={100} width={100} />
-                    <span className="font-bold">{session.currentSeason.title}</span>
+                    <span className="font-bold">
+                        { session === null ? (
+                            <div className="hidden">error</div>
+                        ):(
+                            <span>{session.currentSeason.title}</span>
+                        )}
+                    </span>
                     <p className='py-8 text-md'>Show case your talent and stand a chance to win big.
                     <br className='hidden md:block'/> Will you be the next street champion?</p>
                     <div>
