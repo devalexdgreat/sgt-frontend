@@ -10,7 +10,7 @@ import NoSeasonCard from "./NoSeasonCard";
 import NoSeasonPcCard from "./NoSeasonPcCard";
 
 export default function Hero({ session }) {
-    
+
     const [openModal, setOpenmodal] = useState(false);
     const [page, setPage] = useState(0);
     const [isSeasonAvail, setIsSeasonAvail] = useState(true);
@@ -56,6 +56,7 @@ export default function Hero({ session }) {
 
                 <div className='flex flex-col items-center text-center md:text-left md:items-start'>
                     <Image src={LogoImg} className='w-full' alt='' height={100} width={100} />
+                    <span className="font-bold">{session.currentSeason.title}</span>
                     <p className='py-8 text-md'>Show case your talent and stand a chance to win big.
                     <br className='hidden md:block'/> Will you be the next street champion?</p>
                     <div>
