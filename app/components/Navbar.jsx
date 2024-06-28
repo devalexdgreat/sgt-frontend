@@ -28,6 +28,7 @@ export default function Navbar() {
                     <div className="flex gap-20">
                         <Link href={'#contestants'} className="">Contestants</Link>
                         <Link href={'#gallery'} className="">Gallery</Link>
+                        <Link href={'/contact'} className="">Contact</Link>
                     </div>
                     <div>
                         <Link href={'/signup'} className="border border-[#52CF50] text-white py-2 px-6">Sign-up</Link>

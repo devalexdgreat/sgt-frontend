@@ -11,7 +11,7 @@ export default async function Home() {
   console.log(session);
 
   return (
-    <main>
+    <main className="overflow-hidden">
       <Hero session={session} />
       <ContestantsSection />
       <Gallery />
