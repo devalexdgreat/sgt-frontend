@@ -6,8 +6,9 @@ import emptyIcon from '@/public/empty.png';
 import useFetch from "@/utils/useFetch";
 
 export default async function ContestantsSection() {
-
+    const session = await useFetch(`seasons/current`);
     const data = await useFetch(`contestants/current?pages=1&limit=10`);
+
     var contestants;
     if (data && Array.isArray(data.contestants)) {
         contestants = data.contestants;
@@ -22,15 +23,23 @@ export default async function ContestantsSection() {
             <div className="w-11/12 mx-auto">
                 <div className="w-full flex justify-between mt-8">
                     <div className="md:hidden w-full text-center flex items-center justify-center">
-                        <h1 className="font-bold text-xl">Contestants</h1>
+                        { session === null ? (
+                            <span className="hidden">error</span>
+                        ):(
+                            <h1 className="w-9/12 mx-auto font-bold text-xl">Contestants for {session.currentSeason.title}</h1>
+                        )}
                     </div>
-                    <div className="hidden md:flex flex-col text-md w-3/12">
+                    <div className="hidden md:flex flex-col text-md w-4/12">
                         <div className="w-full">
                             <span className="text-xl font-bold">Contestants for</span>
                         </div>
-                        <div className="w-full flex justify-end">
-                            <span className="text-xl font-bold">Street Got Talent Season 2</span>
-                        </div>
+                        { session === null ? (
+                            <div className="hidden">error</div>
+                        ):(
+                            <div className="w-full flex justify-end">
+                                <span className="text-xl font-bold">Street Got Talent {session.currentSeason.title}</span>
+                            </div>
+                        )}
                     </div>
                     <div className="hidden md:block">
                         <div className="flex gap-3">

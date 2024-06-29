@@ -17,8 +17,8 @@ export default function Navbar() {
     };
 
     return (
-        <div className="w-full bg-transparent text-white absolute top-0">
-            <div className="w-11/12 mx-auto flex justify-between items-center py-6 md:py-3">
+        <div className="w-full bg-black/30 fixed text-white top-0 z-30">
+            <div className="w-11/12 mx-auto flex justify-between items-center py-6 md:py-1">
                 <Link href={'/'} className="hidden md:block">
                     <Image src={LogoImg} height={100} width={100} className="" alt="" />
                 </Link>
@@ -41,12 +41,13 @@ export default function Navbar() {
                         <IoClose className="h-6 w-6" />
                     </button>
                     <div className="w-full flex justify-center items-center">
-                        <Image src={LogoImg} height={100} width={100} className="" alt="" />
+                        <Image src={LogoImg} onClick={toggleMenu} height={100} width={100} className="" alt="" />
                     </div>
                     <div className="h-5/6 flex flex-col justify-between w-9/12">
                         <div className="flex flex-col gap-8 w-full mx-auto text-lg">
                             <Link href={'#contestants'} onClick={toggleMenu} className="">Contestants</Link>
                             <Link href={'#gallery'} onClick={toggleMenu} className="">Gallery</Link>
+                            <Link href={'#gallery'} onClick={toggleMenu} className="">Contact</Link>
                         </div>
                         <div className="text-center w-full flex flex-col justify-center gap-6 mb-12">
                             <p>Come show your talent and win grand prizes</p>
