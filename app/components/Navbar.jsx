@@ -44,9 +44,9 @@ export default function Navbar() {
                         <Image src={LogoImg} height={100} width={100} className="" alt="" />
                     </div>
                     <div className="h-5/6 flex flex-col justify-between w-9/12">
-                        <div className="flex flex-col gap-8 w-full mx-auto">
-                            <Link href={'#contestants'} className="">Contestants</Link>
-                            <Link href={'#gallery'} className="">Gallery</Link>
+                        <div className="flex flex-col gap-8 w-full mx-auto text-lg">
+                            <Link href={'#contestants'} onClick={toggleMenu} className="">Contestants</Link>
+                            <Link href={'#gallery'} onClick={toggleMenu} className="">Gallery</Link>
                         </div>
                         <div className="text-center w-full flex flex-col justify-center gap-6 mb-12">
                             <p>Come show your talent and win grand prizes</p>
