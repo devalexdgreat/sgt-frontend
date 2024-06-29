@@ -99,25 +99,25 @@ export default function Hero({ session }) {
     }
 
     return (
-        <div id="hero" className="w-full hero-bg text-white h-[800px] md:h-screen flex justify-center items-center pt-0 md:pt-16 overflow-hidden">
+        <div id="signup" className="w-full hero-bg text-white h-[800px] md:h-screen flex justify-center items-center pt-0 md:pt-16 overflow-hidden">
             <div className="relative w-11/12 mx-auto flex flex-col md:flex-row md:justify-between h-5/6 justify-center items-center">
 
-                <div className='flex flex-col items-center text-center md:text-left md:items-start'>
-                    <Image src={LogoImg} className='w-full' alt='' height={100} width={100} />
+                <div className='flex flex-col items-center text-center md:text-left md:items-start w-full md:w-6/12'>
+                    <Image src={LogoImg} className='w-10/12' alt='' height={1000} width={1000} />
                     <span className="font-bold">
                         { session === null ? (
                             <div className="hidden">error</div>
                         ):(
-                            <span>{session.currentSeason.title}</span>
+                            <span className="text-lg">{session.currentSeason.title}</span>
                         )}
                     </span>
-                    <p className='py-8 text-md'>Show case your talent and stand a chance to win big.
-                    <br className='hidden md:block'/> Will you be the next street champion?</p>
+                    {/* <p className='py-8 text-md'>Show case your talent and stand a chance to win big.
+                    <br className='hidden md:block'/> Will you be the next street champion?</p> */}
                     <div>
-                        <button onClick={handleRegister} className='bg-[#52CF50] text-black py-2 px-6 rounded-md md:hidden'>Register Now</button>
-                        <button className="hidden md:block py-2 px-6 border border-[#52CF50]">
+                        <button onClick={handleRegister} className='mt-8 bg-[#52CF50] text-black py-2 px-6 rounded-md md:hidden'>Register Now</button>
+                        <Link href={'#signup'} className="mt-8 hidden md:block py-2 px-6 border border-[#52CF50]">
                             Register Now
-                        </button>
+                        </Link>
                     </div>
                 </div>
                 <div className='hidden md:block w-6/12'>

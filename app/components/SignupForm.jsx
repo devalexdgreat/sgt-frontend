@@ -106,7 +106,7 @@ export default function SignupForm({ handleNext, userData, setUserData }) {
                             {fileName ? (
                                 <span>{fileName}</span>
                             ) : (
-                                <span>Upload Image</span>
+                                <span>Upload Image of yourself</span>
                             )}
                         </button>
                     </div>

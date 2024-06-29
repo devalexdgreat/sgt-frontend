@@ -3,6 +3,7 @@ import Image from "next/image";
 import paymentIcon from '@/public/process.png'
 import successIcon from '@/public/verified.png'
 import { useEffect, useState } from "react";
+import Link from "next/link";
 
 export default function ConfirmPayment({ params }) {
     const [userData, setUserData] = useState(null);
@@ -99,6 +100,9 @@ export default function ConfirmPayment({ params }) {
                     <h1 className="mb-2 text-black font-bold text-xl">Payment Successful</h1>
                     <Image src={successIcon} className="w-44" height={100} width={100} alt="Payment Icon" />
                     <p className="text-center text-sm w-10/12">{msg}</p>
+                    <Link href={'/'} className="bg-[#52CF50] py-2 px-6 rounded-md">
+                        <span>Go Back</span>
+                    </Link>
                 </div>
             ):(
                 <div className="bg-white backdrop-blur-sm rounded-md h-3/6 w-11/12 md:w-6/12 flex justify-center items-center flex-col">
