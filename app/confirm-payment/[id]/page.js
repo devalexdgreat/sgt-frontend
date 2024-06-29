@@ -95,13 +95,13 @@ export default function ConfirmPayment({ params }) {
     return (
         <div className="w-full overflow-hidden hero-bg h-screen flex justify-center items-center">
             {isDone ? (
-                <div className="bg-white/60 backdrop-blur-sm rounded-md h-3/6 w-11/12 md:w-6/12 flex justify-center items-center flex-col">
+                <div className="bg-white backdrop-blur-sm rounded-md h-3/6 w-11/12 md:w-6/12 flex justify-center items-center flex-col">
                     <h1 className="mb-2 text-black font-bold text-xl">Payment Successful</h1>
                     <Image src={successIcon} className="w-44" height={100} width={100} alt="Payment Icon" />
                     <p className="text-sm">{msg}</p>
                 </div>
             ):(
-                <div className="bg-white/60 backdrop-blur-sm rounded-md h-3/6 w-11/12 md:w-6/12 flex justify-center items-center flex-col">
+                <div className="bg-white backdrop-blur-sm rounded-md h-3/6 w-11/12 md:w-6/12 flex justify-center items-center flex-col">
                     <div className="rounded-md absolute">
                         <div className="spinner">
                             {[...Array(10)].map((_, index) => (
@@ -111,7 +111,9 @@ export default function ConfirmPayment({ params }) {
                     </div>
                     <h1 className="mb-2 text-black font-bold text-xl">Processing Payment...</h1>
                     <Image src={paymentIcon} className="w-44" height={100} width={100} alt="Payment Icon" />
-                    <p>Please wait while we are processing payment.</p>
+                    <div className="w-full flex justify-center">
+                        <p className="text-center w-11/12">Please wait while we are processing payment.</p>
+                    </div>
                 </div>
             )}
         </div>
