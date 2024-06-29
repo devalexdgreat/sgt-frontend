@@ -100,7 +100,7 @@ export default function ConfirmPayment({ params }) {
                     <h1 className="mb-2 text-black font-bold text-xl">Payment Successful</h1>
                     <Image src={successIcon} className="w-44" height={100} width={100} alt="Payment Icon" />
                     <p className="text-center text-sm w-10/12">{msg}</p>
-                    <Link href={'/'} className="bg-[#52CF50] py-2 px-6 rounded-md">
+                    <Link href={'/'} className="mt-3 mb-2 bg-[#52CF50] text-white py-2 px-6 rounded-md flex justify-center items-center text-center">
                         <span>Go Back</span>
                     </Link>
                 </div>
