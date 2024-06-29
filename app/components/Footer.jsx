@@ -18,14 +18,24 @@ export default function Footer() {
                     </div>
                 </div>
                 <div className="flex items-center gap-3">
-                    <Link href={'https://www.tiktok.com/@streetsgottalent_'} className="" passHref legacyBehavior>
+                    <Link href={'https://www.tiktok.com/@xpatainment?_t=8nbfITf0F3W&_r=1'} className="" passHref legacyBehavior>
                         <a target="_blank">
                             <FaTiktok />
                         </a>
                     </Link>
-                    <Link href={'https://www.instagram.com/streetsgottalent_'} className="" passHref legacyBehavior>
+                    <Link href={'https://www.instagram.com/xpatainment_?igsh=aW1qc2RtaGt3bnBo'} className="" passHref legacyBehavior>
                         <a target="_blank">
                             <FaInstagram />
+                        </a>
+                    </Link>
+                    <Link href={'https://www.facebook.com/streetsgottalent_'} className="" passHref legacyBehavior>
+                        <a target="_blank">
+                            <FaFacebookF />
+                        </a>
+                    </Link>
+                    <Link href={'https://www.facebook.com/xpataintment?mibextid=kFxxJD'} className="" passHref legacyBehavior>
+                        <a target="_blank">
+                            <FaYoutube />
                         </a>
                     </Link>
                 </div>

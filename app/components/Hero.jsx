@@ -53,7 +53,12 @@ export default function Hero({ session }) {
     }
 
     const handleNext = () => {
-        if( !userData.name || !userData.phoneNo || !userData.instagram || !userData.tiktok || !userData.email || !userData.perf || !userData.img ) {
+        if(!userData.instagram || !userData.tiktok) {
+            userData.instagram = 'nil';
+            userData.tiktok = 'nil';
+        }
+
+        if( !userData.name || !userData.phoneNo || !userData.email || !userData.perf || !userData.img ) {
             alert('All fields are neccessary!');
             return;
         }
@@ -63,11 +68,16 @@ export default function Hero({ session }) {
     }
 
     const handleNextPc = () => {
-        if( !userData.name || !userData.phoneNo || !userData.instagram || !userData.tiktok || !userData.email || !userData.perf || !userData.img ) {
+        if(!userData.instagram || !userData.tiktok) {
+            userData.instagram = 'nil';
+            userData.tiktok = 'nil';
+        }
+
+        if( !userData.name || !userData.phoneNo || !userData.email || !userData.perf || !userData.img ) {
             alert('All fields are neccessary!');
             return;
         }
-        
+
         setPagePc((currPage) => currPage + 1);
         console.log(userData);
     }
@@ -89,7 +99,7 @@ export default function Hero({ session }) {
     }
 
     return (
-        <div className="w-full hero-bg text-white h-[800px] md:h-screen flex justify-center items-center pt-0 md:pt-16 overflow-hidden">
+        <div id="hero" className="w-full hero-bg text-white h-[800px] md:h-screen flex justify-center items-center pt-0 md:pt-16 overflow-hidden">
             <div className="relative w-11/12 mx-auto flex flex-col md:flex-row md:justify-between h-5/6 justify-center items-center">
 
                 <div className='flex flex-col items-center text-center md:text-left md:items-start'>
