@@ -98,7 +98,7 @@ export default function ConfirmPayment({ params }) {
                 <div className="bg-white backdrop-blur-sm rounded-md h-3/6 w-11/12 md:w-6/12 flex justify-center items-center flex-col">
                     <h1 className="mb-2 text-black font-bold text-xl">Payment Successful</h1>
                     <Image src={successIcon} className="w-44" height={100} width={100} alt="Payment Icon" />
-                    <p className="text-sm">{msg}</p>
+                    <p className="text-center text-sm w-10/12">{msg}</p>
                 </div>
             ):(
                 <div className="bg-white backdrop-blur-sm rounded-md h-3/6 w-11/12 md:w-6/12 flex justify-center items-center flex-col">
@@ -112,7 +112,7 @@ export default function ConfirmPayment({ params }) {
                     <h1 className="mb-2 text-black font-bold text-xl">Processing Payment...</h1>
                     <Image src={paymentIcon} className="w-44" height={100} width={100} alt="Payment Icon" />
                     <div className="w-full flex justify-center">
-                        <p className="text-center w-11/12">Please wait while we are processing payment.</p>
+                        <p className="text-center text-sm w-10/12">Please wait while we are processing payment.</p>
                     </div>
                 </div>
             )}

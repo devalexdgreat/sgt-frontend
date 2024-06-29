@@ -63,6 +63,11 @@ export default function Hero({ session }) {
     }
 
     const handleNextPc = () => {
+        if( !userData.name || !userData.phoneNo || !userData.instagram || !userData.tiktok || !userData.email || !userData.perf || !userData.img ) {
+            alert('All fields are neccessary!');
+            return;
+        }
+        
         setPagePc((currPage) => currPage + 1);
         console.log(userData);
     }
