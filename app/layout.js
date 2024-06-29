@@ -7,7 +7,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
   icons: {
-    apple: '/apple-icon.png',
+    apple: '/logobg.png',
   },
   metadataBase: new URL('https://www.streetgottalent.com'),
     alternates: {
@@ -15,28 +15,28 @@ export const metadata = {
     },
     twitter: {
       card: 'summary_large_image',
-      title: "Street's Got Talent: Explore the Latest Trends and Insights",
-      description: 'Discover insightful articles and discussions on the latest trends across various industries at TrendsTalk Hubb.',
+      title: "Street's Got Talent - Show case your talent and stand a chance to win big.",
+      description: 'Show case your talent and stand a chance to win big at Streetgottalent by Xpatainment',
       siteId: '@Xpatainment',
       creator: 'Xpatainment',
       creatorId: '@Xpatainment',
-      images: ['https://www.trendstalkhubb.info/favicon.png'], // Must be an absolute URL
+      images: ['https://www.streetgottalent.com/logobg.png'], // Must be an absolute URL
       url: "https://www.streetgottalent.com",
     },
   openGraph: {
-    title: "Street's Got Talent: Explore the Latest Trends and Insights",
-    description: 'Discover insightful articles and discussions on the latest trends across various industries at TrendsTalk Hubb.',
-    keywords: "street, talent, xpatainment, discussions, industry trends, latest trends, blog, blogging, Trending topics, Trend analysis, news, blog",
+    title: "Street's Got Talent - Show case your talent and stand a chance to win big",
+    description: 'Show case your talent and stand a chance to win big at Streetgottalent by Xpatainment.',
+    keywords: "street, talent, xpatainment, showcase, industry trends, latest trends, singing, win, Trending show",
     url: 'https://www.streetgottalent.com',
     siteName: 'Streetgottalent',
     images: [
       {
-        url: 'https://www.streetgottalent.com/favicon.ico', // Must be an absolute URL
+        url: 'https://www.streetgottalent.com/logobg.png', // Must be an absolute URL
         width: 800,
         height: 600,
       },
       {
-        url: 'https://www.streetgottalent.com/favicon.ico', // Must be an absolute URL
+        url: 'https://www.streetgottalent.com/logobg.png', // Must be an absolute URL
         width: 1800,
         height: 1600,
         alt: 'streetgottalent.',
@@ -59,12 +59,12 @@ export const metadata = {
     },
   },
   title: "Street's Got Talent: Explore the Latest Trends and Insights",
-  description: "Discover insightful articles and discussions on the latest trends across various industries at Streetgottalent.",
-  keywords: "streets, insights, talent, discussions, industry trends, latest trends, blog, blogging, Trending topics, Trend analysis, news, blog",
-  author: "TrendsTalk Hubb",
-  url: "https://www.trendstalkhubb.info",
-  image: "https://www.trendstalkhubb.info/favicon.png",
-  siteName: "TrendsTalk Hubb",
+  description: "Show case your talent and stand a chance to win big at Streetgottalent.",
+  keywords: "streets, insights, talent, discussions, industry trends, latest trends, showcase, talentshow, fun, win, award, competition",
+  author: "Xpatainment",
+  url: "https://www.streetgottalent.com",
+  image: "https://www.streetgottalent.com/logobg.png",
+  siteName: "StreetGotTalent",
   type: "website"
 };
 
