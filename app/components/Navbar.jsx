@@ -5,7 +5,7 @@ import Link from "next/link";
 import { HiMenuAlt1 } from "react-icons/hi";
 import { FiSearch } from "react-icons/fi";
 import { useState } from "react";
-import { FaFacebookF, FaInstagram, FaXTwitter, FaYoutube } from "react-icons/fa6";
+import { FaFacebookF, FaInstagram, FaTiktok, FaXTwitter, FaYoutube } from "react-icons/fa6";
 import { IoClose } from "react-icons/io5";
 
 export default function Navbar() {
@@ -54,10 +54,16 @@ export default function Navbar() {
                                 <button href={'/signup'} className="border border-[#52CF50] text-white py-2 px-6 w-full text-center">Sign-up</button>
                             </div>
                             <div className="flex justify-center items-center gap-3">
-                                <Link href={'#'} className=""><FaFacebookF /></Link>
-                                <Link href={'#'} className=""><FaXTwitter /></Link>
-                                <Link href={'#'} className=""><FaInstagram /></Link>
-                                <Link href={'#'} className=""><FaYoutube /></Link>
+                                <Link href={'https://www.tiktok.com/@streetsgottalent_'} className="" passHref legacyBehavior>
+                                    <a target="_blank">
+                                        <FaTiktok />
+                                    </a>
+                                </Link>
+                                <Link href={'https://www.instagram.com/streetsgottalent_'} className="" passHref legacyBehavior>
+                                    <a target="_blank">
+                                        <FaInstagram />
+                                    </a>
+                                </Link>
                             </div>
                         </div>
                     </div>

@@ -5,8 +5,11 @@ import { useRouter } from "next/navigation";
 
 export default function PaymentForm({ session, userData }) {
     const router = useRouter();
-    console.log(userData);
+    
     const handlePayment = async (callback_url) => {
+        const userDataString = JSON.stringify(userData);
+        localStorage.setItem('userData', userDataString);
+
         try {
             const response = await fetch(`${process.env.NEXT_PUBLIC_BASEURL}/payments/generate_link
 `, {
@@ -18,7 +21,6 @@ export default function PaymentForm({ session, userData }) {
             });
 
             if(response.ok) {
-                await setCookies(userData);
                 const data = await response.json();
                 const authUrl = data.authorization_url;
                 // const successMsg = data.message;
@@ -26,7 +28,7 @@ export default function PaymentForm({ session, userData }) {
             }
 
         } catch (error) {
-            
+            console.log('error during payment', error);
         }
     }
 

@@ -7,8 +7,15 @@ import useFetch from "@/utils/useFetch";
 
 export default async function ContestantsSection() {
 
-    const contestants = await useFetch(`contestants/current?pages=1&limit=10`);
-    console.log(contestants);
+    const data = await useFetch(`contestants/current?pages=1&limit=10`);
+    var contestants;
+    if (data && Array.isArray(data.contestants)) {
+        contestants = data.contestants;
+    } else {
+        contestants = null;
+    }
+    // const contestants = data.contestants;
+    console.log('i am a contestants', contestants);
 
     return (
         <div className="w-full" id="contestants">
@@ -49,80 +56,21 @@ export default async function ContestantsSection() {
                         </div>
                     ):(
                         <div>
-                            <div className="grid grid-cols-1 md:grid-cols-4 gap-3 mt-3">
-                                <div>
-                                    <div>
-                                        <Image src={ContestantImg} className="w-full" alt="" />
-                                    </div>
-                                    <div className="flex flex-col text-center justify-center py-2">
-                                        <span>Name: <span className="font-bold">Davido</span></span>
-                                        <span>Perfomance Type: <span className="font-bold">Singing</span></span>
-                                    </div>
+                            {contestants && (
+                                <div className="grid grid-cols-1 md:grid-cols-4 gap-3 mt-3">
+                                    {contestants.map((d) => (
+                                        <div key={d._id}>
+                                            <div>
+                                                <Image src={d.imageUrl} className="w-full" alt="" width={100} height={100} />
+                                            </div>
+                                            <div className="flex flex-col text-center justify-center py-2">
+                                                <span>Name: <span className="font-bold">{d.name}</span></span>
+                                                <span>Perfomance Type: <span className="font-bold">{d.performanceType}</span></span>
+                                            </div>
+                                        </div>
+                                    ))}
                                 </div>
-                                <div>
-                                    <div>
-                                        <Image src={ContestantImg} className="w-full" alt="" />
-                                    </div>
-                                    <div className="flex flex-col text-center justify-center py-2">
-                                        <span>Name: <span className="font-bold">Davido</span></span>
-                                        <span>Perfomance Type: <span className="font-bold">Singing</span></span>
-                                    </div>
-                                </div>
-                                <div>
-                                    <div>
-                                        <Image src={ContestantImg} className="w-full" alt="" />
-                                    </div>
-                                    <div className="flex flex-col text-center justify-center py-2">
-                                        <span>Name: <span className="font-bold">Davido</span></span>
-                                        <span>Perfomance Type: <span className="font-bold">Singing</span></span>
-                                    </div>
-                                </div>
-                                <div>
-                                    <div>
-                                        <Image src={ContestantImg} className="w-full" alt="" />
-                                    </div>
-                                    <div className="flex flex-col text-center justify-center py-2">
-                                        <span>Name: <span className="font-bold">Davido</span></span>
-                                        <span>Perfomance Type: <span className="font-bold">Singing</span></span>
-                                    </div>
-                                </div>
-                                <div>
-                                    <div>
-                                        <Image src={ContestantImg} className="w-full" alt="" />
-                                    </div>
-                                    <div className="flex flex-col text-center justify-center py-2">
-                                        <span>Name: <span className="font-bold">Davido</span></span>
-                                        <span>Perfomance Type: <span className="font-bold">Singing</span></span>
-                                    </div>
-                                </div>
-                                <div>
-                                    <div>
-                                        <Image src={ContestantImg} className="w-full" alt="" />
-                                    </div>
-                                    <div className="flex flex-col text-center justify-center py-2">
-                                        <span>Name: <span className="font-bold">Davido</span></span>
-                                        <span>Perfomance Type: <span className="font-bold">Singing</span></span>
-                                    </div>
-                                </div>
-                                <div>
-                                    <div>
-                                        <Image src={ContestantImg} className="w-full" alt="" />
-                                    </div>
-                                    <div className="flex flex-col text-center justify-center py-2">
-                                        <span>Name: <span className="font-bold">Davido</span></span>
-                                        <span>Perfomance Type: <span className="font-bold">Singing</span></span>
-                                    </div>
-                                </div>
-                                <div>
-                                    <div>
-                                        <Image src={ContestantImg} className="w-full" alt="" />
-                                    </div>
-                                    <div className="flex flex-col text-center justify-center py-2">
-                                        <span>Name: <span className="font-bold">Davido</span></span>
-                                        <span>Perfomance Type: <span className="font-bold">Singing</span></span>
-                                    </div>
-                                </div>
-                            </div>
+                            )}
                             <div className="w-full flex justify-center py-4">
                                 <div className="flex gap-8 items-center pb-2">
                                     <button><FiChevronLeft /></button>

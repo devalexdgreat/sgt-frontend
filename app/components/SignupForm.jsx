@@ -14,11 +14,27 @@ export default function SignupForm({ handleNext, userData, setUserData }) {
     };
     
     const handleChange = (e) => {
-        const fileUploaded = e.target.files?.[0];
+        const fileUploaded = e.target.files[0];
         if (fileUploaded) {
+
+            const reader = new FileReader();
+            reader.readAsDataURL(fileUploaded);
+
+            reader.onload = () => {
+
+                setUserData({ ...userData, img: reader.result })
+                // Store the base64 string in localStorage
+                // localStorage.setItem('file', reader.result);
+                // localStorage.setItem('fileName', selectedFile.name);
+            };
+
+            reader.onerror = (error) => {
+                console.error('Error reading file:', error);
+            };
+
             // const img = URL.createObjectURL(fileUploaded);
             // setImage(fileUploaded);
-            setUserData({ ...userData, img: fileUploaded })
+            // setUserData({ ...userData, img: fileUploaded })
             const fileName = fileUploaded.name;
             setFileName(fileName);
         }

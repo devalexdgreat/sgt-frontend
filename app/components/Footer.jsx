@@ -1,7 +1,7 @@
 import Image from "next/image";
 import LogoImg from '@/public/hero.png';
 import Link from "next/link"
-import { FaFacebookF, FaInstagram, FaXTwitter, FaYoutube } from "react-icons/fa6";
+import { FaFacebookF, FaInstagram, FaTiktok, FaXTwitter, FaYoutube } from "react-icons/fa6";
 
 export default function Footer() {
     return (
@@ -12,16 +12,22 @@ export default function Footer() {
                         <Image src={LogoImg} height={100} width={100} className="" alt="" />
                     </Link>
                     <div className="mt-12 flex gap-10">
-                        <Link href={'#'} className="">Contestants</Link>
-                        <Link href={'#'} className="">Gallery</Link>
-                        <Link href={'#'} className="">Contact</Link>
+                        <Link href={'#contestants'} className="">Contestants</Link>
+                        <Link href={'#gallery'} className="">Gallery</Link>
+                        <Link href={'/contact'} className="">Contact</Link>
                     </div>
                 </div>
                 <div className="flex items-center gap-3">
-                    <Link href={'#'} className=""><FaFacebookF /></Link>
-                    <Link href={'#'} className=""><FaXTwitter /></Link>
-                    <Link href={'#'} className=""><FaInstagram /></Link>
-                    <Link href={'#'} className=""><FaYoutube /></Link>
+                    <Link href={'https://www.tiktok.com/@streetsgottalent_'} className="" passHref legacyBehavior>
+                        <a target="_blank">
+                            <FaTiktok />
+                        </a>
+                    </Link>
+                    <Link href={'https://www.instagram.com/streetsgottalent_'} className="" passHref legacyBehavior>
+                        <a target="_blank">
+                            <FaInstagram />
+                        </a>
+                    </Link>
                 </div>
             </div>
         </div>
