@@ -1,5 +1,5 @@
 export default function Contact() {
-    retuen (
+    return (
         <div>
             <div>
                 <h1>Contact us</h1>
