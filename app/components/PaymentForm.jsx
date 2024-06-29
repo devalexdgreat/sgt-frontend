@@ -47,7 +47,7 @@ export default function PaymentForm({ session, userData }) {
                     <h1 className="font-normal text-xl mb-4">Registration Fee: <span className="font-bold">{addCommasToNumber(session.currentSeason.registrationFee)} NGN</span></h1>
                 )}
                 
-                <button disabled={isLoading ? true : false} onClick={(e) => handlePayment(`${process.env.NEXT_PUBLIC_REDIR_URL}`)} className="w-full bg-green-500 py-3 px-4 text-white rounded-md">
+                <button onClick={(e) => handlePayment(`${process.env.NEXT_PUBLIC_REDIR_URL}`)} className="w-full bg-green-500 py-3 px-4 text-white rounded-md">
                     {isLoading ? (
                         <span>Processing...</span>
                     ):(
