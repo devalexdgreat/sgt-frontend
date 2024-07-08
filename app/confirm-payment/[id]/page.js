@@ -2,12 +2,15 @@
 import Image from "next/image";
 import paymentIcon from '@/public/process.png'
 import successIcon from '@/public/verified.png'
+import failIcon from '@/public/failed.png'
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import { MdOutlineCancel } from "react-icons/md";
 
 export default function ConfirmPayment({ params }) {
     const [userData, setUserData] = useState(null);
-    const [isDone, setIsDone] = useState(false);
+    const [isDone, setIsDone] = useState(false); //false
+    const [isSuccess, setIsSuccess] = useState(false);
     const [msg, setMsg] = useState('');
     const { id } = params;
 
@@ -78,12 +81,19 @@ export default function ConfirmPayment({ params }) {
                                 const registerData = await registerResponse.json();
                                 const successMsg = registerData.message;
                                 setIsDone(true);
+                                setIsSuccess(true);
                                 setMsg(successMsg);
                             }
                         } catch (error) {
                             console.error('Error during registration:', error);
                         }
                     }
+                } else {
+                    const errorData = await registerResponse.json();
+                    const successMsg = errorData.message;
+                    setIsDone(true);
+                    setIsSuccess(false);
+                    setMsg(successMsg);
                 }
             } catch (error) {
                 console.log('Error during verification', error);
@@ -96,14 +106,28 @@ export default function ConfirmPayment({ params }) {
     return (
         <div className="w-full overflow-hidden hero-bg h-screen flex justify-center items-center">
             {isDone ? (
-                <div className="bg-white backdrop-blur-sm rounded-md h-3/6 w-11/12 md:w-6/12 flex justify-center items-center flex-col">
-                    <h1 className="mb-2 text-black font-bold text-xl">Payment Successful</h1>
-                    <Image src={successIcon} className="w-44" height={100} width={100} alt="Payment Icon" />
-                    <p className="text-center text-sm w-10/12">{msg}</p>
-                    <Link href={'/'} className="mt-3 mb-2 bg-[#52CF50] text-white py-2 px-6 rounded-md flex justify-center items-center text-center">
-                        <span>Go Back</span>
-                    </Link>
-                </div>
+                <>
+                {isSuccess ? (
+                    <div className="bg-white backdrop-blur-sm rounded-md h-3/6 w-11/12 md:w-6/12 flex justify-center items-center flex-col">
+                        <h1 className="mb-2 text-black font-bold text-xl">Payment Successful</h1>
+                        <Image src={successIcon} className="w-44" height={100} width={100} alt="Payment Icon" />
+                        <p className="text-center text-sm w-10/12">{msg}</p>
+                        <Link href={'/'} className="mt-3 mb-2 bg-[#52CF50] text-white py-2 px-6 rounded-md flex justify-center items-center text-center">
+                            <span>Go Back</span>
+                        </Link>
+                    </div>
+                ):(
+                    <div className="bg-white backdrop-blur-sm rounded-md h-3/6 w-11/12 md:w-6/12 flex justify-center items-center flex-col">
+                        <h1 className="mb-2 text-black font-bold text-xl">Payment Unsuccessful</h1>
+                        <Image src={failIcon} className="w-44" height={100} width={100} alt="Payment Icon" />
+                        <p className="text-center text-sm w-10/12">{msg}</p>
+                        <Link href={'/'} className="mt-3 mb-2 bg-[#52CF50] text-white py-2 px-6 rounded-md flex justify-center items-center text-center">
+                            <span>Go Back</span>
+                        </Link>
+                    </div>
+                )} 
+                </>
+                
             ):(
                 <div className="bg-white backdrop-blur-sm rounded-md h-3/6 w-11/12 md:w-6/12 flex justify-center items-center flex-col">
                     <div className="rounded-md absolute">
