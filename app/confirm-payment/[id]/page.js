@@ -35,7 +35,12 @@ export default function ConfirmPayment({ params }) {
 
     useEffect(() => {
         const verifyPayment = async () => {
-            if (!userData || !reference) return; // Exit if userData or reference is not available
+            if (!userData || !reference) {
+                setIsDone(true);
+                setIsSuccess(false);
+                setMsg('Error! Payment failed...')
+                return; // Exit if userData or reference is not available
+            } 
             localStorage.removeItem('userData');
             // Convert Base64 string back to a Blob
             const byteString = atob(userData.img.split(',')[1]);
@@ -120,7 +125,7 @@ export default function ConfirmPayment({ params }) {
                     <div className="bg-white backdrop-blur-sm rounded-md h-3/6 w-11/12 md:w-6/12 flex justify-center items-center flex-col">
                         <h1 className="mb-2 text-black font-bold text-xl">Payment Unsuccessful</h1>
                         <Image src={failIcon} className="w-44" height={100} width={100} alt="Payment Icon" />
-                        <p className="text-center text-sm w-10/12">{msg}</p>
+                        <p className="text-red-500 text-center text-sm w-10/12">{msg}</p>
                         <Link href={'/'} className="mt-3 mb-2 bg-[#52CF50] text-white py-2 px-6 rounded-md flex justify-center items-center text-center">
                             <span>Go Back</span>
                         </Link>
