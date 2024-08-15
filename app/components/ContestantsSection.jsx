@@ -70,7 +70,7 @@ export default async function ContestantsSection() {
                                     {contestants.map((d) => (
                                         <div key={d._id}>
                                             <div className="h-64">
-                                                <Image src={d.imageUrl} className="h-full w-full object-cover object-top" alt="" width={100} height={100} />
+                                                <Image src={d.imageUrl} className="h-full w-full object-cover object-top" alt="" width={1000} height={1000} />
                                             </div>
                                             <div className="flex flex-col text-center justify-center py-2">
                                                 <span>Name: <span className="font-bold">{d.name}</span></span>
