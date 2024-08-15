@@ -12,8 +12,8 @@ export default function Footer() {
                         <Image src={LogoImg} height={100} width={100} className="" alt="" />
                     </Link>
                     <div className="mt-12 flex gap-10">
-                        <Link href={'#contestants'} className="">Contestants</Link>
-                        <Link href={'#gallery'} className="">Gallery</Link>
+                        <Link href={'/#contestants'} className="">Contestants</Link>
+                        <Link href={'/#gallery'} className="">Gallery</Link>
                         <Link href={'/contact'} className="">Contact</Link>
                     </div>
                 </div>

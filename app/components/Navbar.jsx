@@ -26,12 +26,12 @@ export default function Navbar() {
                 <button className="md:hidden"><FiSearch className="h-6 w-6" /></button>
                 <div className="hidden w-6/12 md:flex justify-between">
                     <div className="flex gap-20">
-                        <Link href={'#contestants'} className="">Contestants</Link>
-                        <Link href={'#gallery'} className="">Gallery</Link>
+                        <Link href={'/#contestants'} className="">Contestants</Link>
+                        <Link href={'/#gallery'} className="">Gallery</Link>
                         <Link href={'/contact'} className="">Contact</Link>
                     </div>
                     <div>
-                        <Link href={'#signup'} className="border border-[#52CF50] text-white py-2 px-6">Sign-up</Link>
+                        <Link href={'/#signup'} className="border border-[#52CF50] text-white py-2 px-6">Sign-up</Link>
                     </div>
                 </div>
             </div>
@@ -45,14 +45,14 @@ export default function Navbar() {
                     </div>
                     <div className="h-5/6 flex flex-col justify-between w-9/12">
                         <div className="flex flex-col gap-8 w-full mx-auto text-lg">
-                            <Link href={'#contestants'} onClick={toggleMenu} className="">Contestants</Link>
-                            <Link href={'#gallery'} onClick={toggleMenu} className="">Gallery</Link>
-                            <Link href={'#gallery'} onClick={toggleMenu} className="">Contact</Link>
+                            <Link href={'/#contestants'} onClick={toggleMenu} className="">Contestants</Link>
+                            <Link href={'/#gallery'} onClick={toggleMenu} className="">Gallery</Link>
+                            <Link href={'/contact'} onClick={toggleMenu} className="">Contact</Link>
                         </div>
                         <div className="text-center w-full flex flex-col justify-center gap-6 mb-12">
                             {/* <p>Come show your talent and win grand prizes</p> */}
                             <div className="w-full flex justify-center">
-                                <button href={'#signup'} onClick={toggleMenu} className="border border-[#52CF50] text-white py-2 px-6 w-full text-center">Sign-up</button>
+                                <button href={'/#signup'} onClick={toggleMenu} className="border border-[#52CF50] text-white py-2 px-6 w-full text-center">Sign-up</button>
                             </div>
                             <div className="flex justify-center items-center gap-3">
                                 <Link href={'https://www.tiktok.com/@xpatainment?_t=8nbfITf0F3W&_r=1'} className="" passHref legacyBehavior>
