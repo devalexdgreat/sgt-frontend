@@ -2,7 +2,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import successIcon from '@/public/sent.png'
-import failIcon from '@/public/unsent.png'
+import failIcon from '@/public/failed.png'
 import { useState } from "react";
 import { FaRegUser } from "react-icons/fa6";
 import { GoArrowLeft } from "react-icons/go";
@@ -15,7 +15,7 @@ export default function Contact() {
     const [message, setMessage] = useState('');
     const [isDone, setIsDone] = useState(false);
     const [isSuccess, setIsSuccess] = useState(false);
-    const [msg, setMsg] = useState('Internet connection was interrupted!');
+    const [msg, setMsg] = useState('');
 
     const handleSubmit = async (e) => {
         e.preventDefault();
