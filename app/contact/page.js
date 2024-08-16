@@ -78,7 +78,7 @@ export default function Contact() {
                     </div>
                 ):(
                     
-                    <form onSubmit={handleSubmit} className="text-sm w-11/12 md:w-5/12 flex flex-col gap-6 md:pb-24 md:pt-6">
+                    <form onSubmit={handleSubmit} className="text-sm w-11/12 md:w-7/12 lg:w-5/12 flex flex-col gap-6 md:pb-24 md:pt-6">
                         <div className="flex items-start w-11/12">
                             <Link href={'/'} className="w-full flex items-start justify-start md:hidden">
                                 <GoArrowLeft className="h-6 w-6" />

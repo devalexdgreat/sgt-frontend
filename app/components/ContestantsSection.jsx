@@ -4,6 +4,7 @@ import Image from "next/image";
 import ContestantImg from '@/public/conte.png';
 import emptyIcon from '@/public/empty.png';
 import useFetch from "@/utils/useFetch";
+import SearchComponent from "./SearchComponent";
 
 export default async function ContestantsSection() {
     const session = await useFetch(`seasons/current`);
@@ -41,19 +42,7 @@ export default async function ContestantsSection() {
                             </div>
                         )}
                     </div>
-                    <div className="hidden md:block">
-                        <div className="flex gap-3">
-                            <button className="bg-[#EAFFEA] w-8 flex justify-center items-center rounded-md">
-                                <BsFilterLeft className="" />
-                            </button>
-                            <div className="border border-black rounded-md flex p-1 px-2 items-center gap-1">
-                                <input type="" className="outline-none" />
-                                <button>
-                                    <FiSearch className="" />
-                                </button>
-                            </div>
-                        </div>
-                    </div>
+                    <SearchComponent />
                 </div>
                 <>
                     {contestants === null ? (
@@ -66,7 +55,7 @@ export default async function ContestantsSection() {
                     ):(
                         <div>
                             {contestants && (
-                                <div className="grid grid-cols-1 md:grid-cols-4 gap-3 mt-3">
+                                <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-3 mt-3">
                                     {contestants.map((d) => (
                                         <div key={d._id}>
                                             <div className="h-80 md:h-64">

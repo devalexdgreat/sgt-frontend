@@ -22,9 +22,9 @@ export default function Navbar() {
                 <Link href={'/'} className="hidden md:block">
                     <Image src={LogoImg} height={100} width={100} className="" alt="" />
                 </Link>
-                <button onClick={toggleMenu} className="md:hidden"><HiMenuAlt1 className="h-6 w-6" /></button>
+                <button onClick={toggleMenu} className="lg:hidden"><HiMenuAlt1 className="h-6 w-6" /></button>
                 <button className="md:hidden"><FiSearch className="h-6 w-6" /></button>
-                <div className="hidden w-6/12 md:flex justify-between">
+                <div className="hidden w-6/12 md:hidden lg:flex justify-between">
                     <div className="flex gap-20">
                         <Link href={'/#contestants'} className="">Contestants</Link>
                         <Link href={'/#gallery'} className="">Gallery</Link>
@@ -36,7 +36,7 @@ export default function Navbar() {
                 </div>
             </div>
             {menuOpen && (
-                <div className="w-full h-screen text-white fixed top-0 bg-black z-30 md:hidden flex flex-col gap-8 items-center py-4">
+                <div className="w-full h-screen text-white fixed top-0 bg-black z-30 lg:hidden flex flex-col gap-8 items-center py-4">
                     <button onClick={toggleMenu} className="absolute top-4 right-4">
                         <IoClose className="h-6 w-6" />
                     </button>
