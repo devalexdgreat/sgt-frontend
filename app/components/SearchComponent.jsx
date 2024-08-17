@@ -68,9 +68,8 @@ export default function SearchComponent() {
 
         } catch (error) {
             console.log('Error Occured: ', error);
-            const data = await res.json();
-            const errorMsg = data.message;
-            setErrorMsg(errorMsg)
+            const errorMsg = error.message;
+            setErrorMsg(`${errorMsg}, due to internet connection interruption.`)
             setError(true);
             setIsLoading(false);
         }
@@ -141,7 +140,7 @@ export default function SearchComponent() {
             {error && (
                 <div className="bg-red-500 text-white p-2 border absolute top-10 rounded-md w-full flex items-center justify-between">
                     <h1>Error 😭: {errorMsg}</h1>
-                    <button onClick={toggleError} className="flex justify-center items-center bg-red-500 text-white rounded-md"><IoClose /></button>
+                    <button onClick={toggleError} className="flex justify-center items-center border border-white text-white rounded-full"><IoClose className="text-white" /></button>
                 </div>
             )}
         </div>
