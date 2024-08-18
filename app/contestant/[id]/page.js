@@ -1,12 +1,14 @@
 import Image from "next/image";
 import Link from "next/link";
 import { GoArrowLeft } from "react-icons/go";
-import conte from '@/public/conte.png';
 import { FaInstagram, FaTiktok } from "react-icons/fa6";
-import { TbCopy } from "react-icons/tb";
 import ShareBtn from "@/app/components/ShareBtn";
+import useFetch from "@/utils/useFetch";
 
-export default function Contestant() {
+export default async function Contestant({ params }) {
+    const { id } = params;
+    const {contestant} = await useFetch(`contestants/current/${id}`);
+
 
     return (
         <div className="w-full hero-bg text-black h-screen md:h-screen lg:h-screen flex justify-center items-center md:items-start lg:items-center pt-5 md:pt-16 overflow-hidden">
@@ -18,37 +20,44 @@ export default function Contestant() {
                 </div>
                 <div>
                     <div className="flex flex-col md:flex-row gap-3 w-full">
-                        <div className="h-52">
-                            <Image src={conte} alt="" className="h-full w-full object-cover rounded-md" height={1000} width={1000} />
+                        <div className="h-52 w-64">
+                            <Image src={contestant.imageUrl} alt="" className="h-full w-full object-cover object-center rounded-md" height={1000} width={1000} />
                         </div>
                         <div className="flex flex-col justify-center w-full">
-                            <h1 className="font-bold">Wizkid Dayo</h1>
-                            <span className="mb-3 text-sm text-gray-400">Performance: Rapper</span>
+                            <h1 className="font-bold">{contestant.name}</h1>
+                            <span className="mb-3 text-sm text-gray-400">Performance: {contestant.performanceType}</span>
                             <div className="flex gap-2 w-full">
                                 <button className=" bg-[#52CF50] text-white py-1 px-2 rounded-md hover:bg-[#52CF50]/90 duration-500">Vote for me</button>
-                                <ShareBtn />
+                                <ShareBtn id={id} />
                             </div>
+                            {/* <div>
+                                <h1>Share Vote Link</h1>
+                                <div className="flex gap-2 w-full">
+                                    <button className=" bg-[#52CF50] text-white py-1 px-2 rounded-md hover:bg-[#52CF50]/90 duration-500">Vote for me</button>
+                                    <ShareBtn id={id} />
+                                </div>
+                            </div> */}
                         </div>
                     </div>
                     <div className="mt-12 flex flex-col gap-3">
                         <div className="w-full bg-white/10 backdrop-blur-sm flex justify-between items-center px-3 py-3 rounded-sm relative hover:bg-[#52CF50]/70 duration-500">
-                            <Link href={'#'} className="top-0 absolute w-full h-full"></Link>
+                            <Link href={contestant.socials.tiktok} className="top-0 absolute w-full h-full"></Link>
                             <div className="flex items-center gap-2">
                                 <FaTiktok />
                                 <span>Tiktok Handle</span>
                             </div>
                             <div>
-                                <span className="text-sm text-gray-300">@WizkidDayo</span>
+                                <span className="text-sm text-gray-300">{contestant.socials.tiktok}</span>
                             </div>
                         </div>
                         <div className="w-full bg-white/10 backdrop-blur-sm flex justify-between items-center px-3 py-3 rounded-sm relative hover:bg-[#52CF50]/70 duration-500">
-                            <Link href={'#'} className="top-0 absolute w-full h-full"></Link>
+                            <Link href={contestant.socials.instagram} className="top-0 absolute w-full h-full"></Link>
                             <div className="flex items-center gap-2">
                                 <FaInstagram />
                                 <span>Instagram Handle</span>
                             </div>
                             <div>
-                                <span className="text-sm text-gray-300">@WizkidDayo</span>
+                                <span className="text-sm text-gray-300">{contestant.socials.instagram}</span>
                             </div>
                         </div>
                     </div>

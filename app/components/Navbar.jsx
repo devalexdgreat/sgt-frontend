@@ -189,7 +189,7 @@ export default function Navbar() {
                                 <div className="w-full flex flex-col gap-0.5 mt-2">
                                     {queryResultMob.map((r) => (
                                         <div key={r._id} className="flex gap-3 items-center relative hover:bg-white/20 rounded-md py-2 px-1">
-                                            <Link onClick={toggleSearchMob} href={'#'} className="top-0 absolute w-full h-full"></Link>
+                                            <Link onClick={toggleSearchMob} href={`https://www.streetgottalent.com/contestant/${r._id}`} className="top-0 absolute w-full h-full"></Link>
                                             <div className="h-10 w-10">
                                                 <Image src={r.imageUrl} className="w-full h-full object-cover rounded-full" height={1000} width={1000} alt="" />
                                             </div>

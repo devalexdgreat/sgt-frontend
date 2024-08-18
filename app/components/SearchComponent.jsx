@@ -110,7 +110,7 @@ export default function SearchComponent() {
                         <div className="flex flex-col mt-4 gap-2">
                             {queryResult.map((r) => (
                                 <div key={r._id} className="flex gap-1.5 text-sm relative hover:bg-[#EAFFEA] p-1 rounded-md hover:duration-700">
-                                    <Link onClick={toggleSearch} href={'#'} className="top-0 absolute w-full h-full"></Link>
+                                    <Link onClick={toggleSearch} href={`https://www.streetgottalent.com/contestant/${r._id}`} className="top-0 absolute w-full h-full"></Link>
                                     <div className="h-12 w-12">
                                         <Image src={r.imageUrl} className="rounded-md h-full w-full object-cover object-top" alt="" width={1000} height={1000} />
                                     </div>

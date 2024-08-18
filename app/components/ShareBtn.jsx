@@ -5,7 +5,7 @@ import { TbCopy } from "react-icons/tb";
 export default function ShareBtn({ id }) {
 
     const copyButtonHandler = () => {
-        const textToCopy = `https://www.streetgottalent.com/contestants/000`;
+        const textToCopy = `https://www.streetgottalent.com/contestant/${id}`;
         copyToClipboard(textToCopy);
     };
 
