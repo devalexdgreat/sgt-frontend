@@ -42,7 +42,10 @@ export default async function Contestant({ params }) {
                         </div>
                         <div className="mt-12 flex flex-col gap-3">
                             <div className="w-full bg-white/10 backdrop-blur-sm flex justify-between items-center px-3 py-3 rounded-sm relative hover:bg-[#52CF50]/70 duration-500">
-                                <Link href={contestant.socials.tiktok} className="top-0 absolute w-full h-full"></Link>
+                                <Link href={contestant.socials.tiktok} className="top-0 absolute w-full h-full" passHref legacyBehavior>
+                                    <a target="_blank">
+                                    </a>
+                                </Link>
                                 <div className="flex items-center gap-2">
                                     <FaTiktok />
                                     <span>Tiktok Handle</span>
@@ -52,7 +55,10 @@ export default async function Contestant({ params }) {
                                 </div>
                             </div>
                             <div className="w-full bg-white/10 backdrop-blur-sm flex justify-between items-center px-3 py-3 rounded-sm relative hover:bg-[#52CF50]/70 duration-500">
-                                <Link href={contestant.socials.instagram} className="top-0 absolute w-full h-full"></Link>
+                                <Link href={contestant.socials.instagram} className="top-0 absolute w-full h-full" passHref legacyBehavior>
+                                    <a target="_blank">
+                                    </a>
+                                </Link>
                                 <div className="flex items-center gap-2">
                                     <FaInstagram />
                                     <span>Instagram Handle</span>
