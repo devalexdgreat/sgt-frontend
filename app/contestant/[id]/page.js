@@ -43,26 +43,26 @@ export default async function Contestant({ params }) {
                         <div className="mt-12 flex flex-col gap-3">
                             <div className="w-full bg-white/10 backdrop-blur-sm flex justify-between items-center px-3 py-3 rounded-sm relative hover:bg-[#52CF50]/70 duration-500">
                                 <Link href={contestant.socials.tiktok} className="top-0 absolute w-full h-full" passHref legacyBehavior>
-                                    <a target="_blank">
-                                        <div className="flex items-center gap-2">
-                                            <FaTiktok />
-                                            <span>Tiktok Handle</span>
-                                        </div>
+                                    <a target="_blank" className="absolute top-0 w-full h-full">
                                     </a>
                                 </Link>
+                                <div className="flex items-center gap-2">
+                                    <FaTiktok />
+                                    <span>Tiktok Handle</span>
+                                </div>
                                 <div>
                                     <span className="text-sm text-gray-300">{(contestant.socials.tiktok).split('/').pop()}</span>
                                 </div>
                             </div>
                             <div className="w-full bg-white/10 backdrop-blur-sm flex justify-between items-center px-3 py-3 rounded-sm relative hover:bg-[#52CF50]/70 duration-500">
                                 <Link href={contestant.socials.instagram} className="top-0 absolute w-full h-full flex justify-start items-start" passHref legacyBehavior>
-                                    <a target="_blank">
-                                        <div className="flex items-center gap-2">
-                                            <FaInstagram />
-                                            <span>Instagram Handle</span>
-                                        </div>
+                                    <a target="_blank" className="absolute top-0 w-full h-full">
                                     </a>
                                 </Link>
+                                <div className="flex items-center gap-2">
+                                    <FaInstagram />
+                                    <span>Instagram Handle</span>
+                                </div>
                                 <div>
                                     <span className="text-sm text-gray-300">{(contestant.socials.instagram).split('/').pop()}</span>
                                 </div>
