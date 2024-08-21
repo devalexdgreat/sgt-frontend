@@ -28,7 +28,7 @@ export default async function Contestant({ params }) {
                                 <h1 className="font-bold">{contestant.name}</h1>
                                 <span className="mb-3 text-sm text-gray-400">Performance: {contestant.performanceType}</span>
                                 <div className="flex gap-2 w-full">
-                                    <button className=" bg-[#52CF50] text-white py-1 px-2 rounded-md hover:bg-[#52CF50]/90 duration-500">Vote for me</button>
+                                    <Link href={`/voting/${contestant._id}`} className=" bg-[#52CF50] text-white py-1 px-2 rounded-md hover:bg-[#52CF50]/90 duration-500">Vote for me</Link>
                                     <ShareBtn id={id} />
                                 </div>
                                 {/* <div>
