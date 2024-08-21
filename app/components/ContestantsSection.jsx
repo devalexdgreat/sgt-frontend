@@ -5,6 +5,7 @@ import ContestantImg from '@/public/conte.png';
 import emptyIcon from '@/public/empty.png';
 import useFetch from "@/utils/useFetch";
 import SearchComponent from "./SearchComponent";
+import Link from "next/link";
 
 export default async function ContestantsSection() {
     const session = await useFetch(`seasons/current`);
@@ -57,7 +58,8 @@ export default async function ContestantsSection() {
                             {contestants && (
                                 <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-3 mt-3">
                                     {contestants.map((d) => (
-                                        <div key={d._id}>
+                                        <div key={d._id} className="relative">
+                                            <Link href={`https://www.streetgottalent.com/contestant/${d._id}`} className="top-0 absolute w-full h-full"></Link>
                                             <div className="h-80 md:h-64">
                                                 <Image src={d.imageUrl} className="h-full w-full object-cover object-top" alt="" width={1000} height={1000} />
                                             </div>
