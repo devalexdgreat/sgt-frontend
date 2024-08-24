@@ -1,10 +1,12 @@
 'use client'
 import { FaRegUser } from "react-icons/fa6";
+import { IoClose } from "react-icons/io5";
 import { MdOutlineMail } from "react-icons/md";
 
-export default function PayQueryForm({ userData, setUserData, handleNext }) {
+export default function PayQueryForm({ userData, setUserData, handleNext, handlePrev }) {
     return (
-        <div className="bg-white text-black rounded-md w-11/12 md:w-5/12 p-3">
+        <div className="bg-white text-black rounded-md w-11/12 md:w-4/12 p-3 relative">
+            <button onClick={handlePrev} className="absolute top-2 right-2 rounded-sm bg-red-500 text-white"><IoClose /></button>
             <h1 className="font-bold mb-4 text-xl">Vote for Candidate</h1>
             <form className="w-full">
                 <div className="flex flex-col gap-5 w-full">

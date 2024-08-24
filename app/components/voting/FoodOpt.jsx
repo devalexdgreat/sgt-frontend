@@ -25,11 +25,13 @@ export default function FoodOpt({ id, streetFoods }) {
         setIsModal(prevModal => !prevModal);
     }
 
-    
+    const closeModal = () => {
+        setIsModal(prevModal => !prevModal);
+    }
 
     const PageDisplay = () => {
         if(page === 0) {
-            return <PayQueryForm setUserData={setUserData} userData={userData} handleNext={handleNext} />
+            return <PayQueryForm setUserData={setUserData} userData={userData} handleNext={handleNext} handlePrev={handlePrev} />
         } else if(page === 1) {
             return <VotePay handlePrev={handlePrev} userData={userData} />
         }
