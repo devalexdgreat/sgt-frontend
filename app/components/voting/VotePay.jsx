@@ -1,7 +1,7 @@
 'use client';
 import { useRouter } from "next/navigation";
 import { useState } from "react";
-import { IoClose } from "react-icons/io5";
+import { GoArrowLeft } from "react-icons/go";
 
 const addCommasToNumber = (number) => {
     return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
@@ -42,7 +42,7 @@ export default function VotePay({ userData, handlePrev }) {
 
     return (
         <div className="w-11/12 md:w-3/12 bg-white text-black rounded-md flex text-center mb-12 relative">
-            <button onClick={handlePrev} className="absolute top-2 right-2 rounded-sm bg-red-500 text-white"><IoClose /></button>
+            <button onClick={handlePrev} className="absolute top-2 left-2 rounded-sm text-black"><GoArrowLeft className="h-6 w-6 hover:text-green-500 duration-500" /></button>
             <div className="w-11/12 mx-auto flex flex-col gap-3 text-sm py-12">
                 {userData !== null && (
                     <h1 className="font-normal text-xl mb-4">Registration Fee: <span className="font-bold">{addCommasToNumber(userData.voteEl.price)} NGN</span></h1>
