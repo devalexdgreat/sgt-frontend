@@ -2,7 +2,6 @@
 import Image from "next/image";
 import LogoImg from '@/public/hero.png';
 import Link from 'next/link';
-import SignupForm from './SignupForm';
 import { useState } from "react";
 import RegForm from "./RegForm";
 import PayForm from "./PayForm";
