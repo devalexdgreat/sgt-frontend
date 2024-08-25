@@ -42,11 +42,12 @@ export default function ConfirmVpayment({ params }) {
             } 
             localStorage.removeItem('userData');
 
-            const formData = new FormData();
-            formData.append('contestant', userData.votedId);
-            formData.append('streetfood', userData.voteEl._id);
+            // const formData = new FormData();
+            // formData.append('contestant', userData.votedId);
+            // formData.append('streetfood', userData.voteEl._id);
 
             try {
+                setIsDone(false);
                 const response = await fetch(`${process.env.NEXT_PUBLIC_BASEURL}/payments/verify`, {
                     method: 'POST',
                     headers: {
@@ -61,8 +62,14 @@ export default function ConfirmVpayment({ params }) {
                     if (paymentFor === 'voting') {
                         try {
                             const registerResponse = await fetch(`${process.env.NEXT_PUBLIC_BASEURL}/contestants/vote`, {
-                                method: 'POST',
-                                body: formData,
+                                method: 'POST',               
+                                headers: {
+                                    'Content-Type': 'application/json'
+                                },
+                                body: JSON.stringify({
+                                    "contestant": userData.votedId,
+                                    "streetfood": userData.voteEl._id
+                                }),
                             });
                             if (registerResponse.ok) {
                                 const registerData = await registerResponse.json();
@@ -75,12 +82,6 @@ export default function ConfirmVpayment({ params }) {
                             console.error('Error during voting:', error);
                         }
                     }
-                } else {
-                    const errorData = await registerResponse.json();
-                    const successMsg = errorData.message;
-                    setIsDone(true);
-                    setIsSuccess(false);
-                    setMsg(successMsg);
                 }
             } catch (error) {
                 console.log('Error during verification', error);

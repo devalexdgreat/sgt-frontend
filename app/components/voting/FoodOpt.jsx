@@ -15,7 +15,7 @@ export default function FoodOpt({ id, streetFoods }) {
     const [userData, setUserData] = useState({
         name: '',
         email: '',
-        voteEL: '',
+        voteEL: null,
         votedId: id,
     });
 
