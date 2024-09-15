@@ -15,6 +15,9 @@ export default function Footer() {
                         <Link href={'/#contestants'} className="">Contestants</Link>
                         <Link href={'/#gallery'} className="">Gallery</Link>
                         <Link href={'/contact'} className="">Contact</Link>
+                        <Link href={'/login'} className="bg-green-500 text-white py-2 px-4 text-sm rounded-md">
+                        Admin Login
+                    </Link>
                     </div>
                 </div>
                 <div className="flex items-center gap-3">

@@ -72,8 +72,12 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={inter.className}>
-        <Navbar />
-        {children}
+        {/* <Navbar /> */}
+        {/* {children} */}
+        <div className="fixed top-0 bg-black text-white h-screen flex flex-col w-full justify-center items-center">
+          <h1 className="font-bold text-lg uppercase text-green-500">Streetgottalent</h1>
+          <span className="font-light">The site is under development!</span>
+        </div>
         <Footer />
       </body>
     </html>

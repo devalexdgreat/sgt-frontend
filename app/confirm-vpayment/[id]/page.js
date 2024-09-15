@@ -5,6 +5,7 @@ import successIcon from '@/public/verified.png'
 import failIcon from '@/public/failed.png'
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import Navbar from "@/app/components/Navbar";
 
 export default function ConfirmVpayment({ params }) {
     const [userData, setUserData] = useState(null);
@@ -92,46 +93,49 @@ export default function ConfirmVpayment({ params }) {
     }, [userData, reference]);
 
     return (
-        <div className="w-full overflow-hidden hero-bg h-screen flex justify-center items-center">
-            {isDone ? (
-                <>
-                {isSuccess ? (
-                    <div className="bg-white backdrop-blur-sm rounded-md h-3/6 w-11/12 md:w-6/12 flex justify-center items-center flex-col">
-                        <h1 className="mb-2 text-black font-bold text-xl">Payment Successful</h1>
-                        <Image src={successIcon} className="w-44" height={100} width={100} alt="Payment Icon" />
-                        <p className="text-center text-sm w-10/12">{msg}</p>
-                        <Link href={'/'} className="mt-3 mb-2 bg-[#52CF50] text-white py-2 px-6 rounded-md flex justify-center items-center text-center"> 
-                            <span>Go Back</span>
-                        </Link>
-                    </div>
+        <div className="w-full">
+            <Navbar />
+            <div className="w-full overflow-hidden hero-bg h-screen flex justify-center items-center">
+                {isDone ? (
+                    <>
+                    {isSuccess ? (
+                        <div className="bg-white backdrop-blur-sm rounded-md h-3/6 w-11/12 md:w-6/12 flex justify-center items-center flex-col">
+                            <h1 className="mb-2 text-black font-bold text-xl">Payment Successful</h1>
+                            <Image src={successIcon} className="w-44" height={100} width={100} alt="Payment Icon" />
+                            <p className="text-center text-sm w-10/12">{msg}</p>
+                            <Link href={'/'} className="mt-3 mb-2 bg-[#52CF50] text-white py-2 px-6 rounded-md flex justify-center items-center text-center"> 
+                                <span>Go Back</span>
+                            </Link>
+                        </div>
+                    ):(
+                        <div className="bg-white backdrop-blur-sm rounded-md h-3/6 w-11/12 md:w-6/12 flex justify-center items-center flex-col">
+                            <h1 className="mb-2 text-black font-bold text-xl">Payment Unsuccessful</h1>
+                            <Image src={failIcon} className="w-44" height={100} width={100} alt="Payment Icon" />
+                            <p className="text-red-500 text-center text-sm w-10/12">{msg}</p>
+                            <Link href={'/'} className="mt-3 mb-2 bg-[#52CF50] text-white py-2 px-6 rounded-md flex justify-center items-center text-center">
+                                <span>Go Back</span>
+                            </Link>
+                        </div>
+                    )} 
+                    </>
+                    
                 ):(
                     <div className="bg-white backdrop-blur-sm rounded-md h-3/6 w-11/12 md:w-6/12 flex justify-center items-center flex-col">
-                        <h1 className="mb-2 text-black font-bold text-xl">Payment Unsuccessful</h1>
-                        <Image src={failIcon} className="w-44" height={100} width={100} alt="Payment Icon" />
-                        <p className="text-red-500 text-center text-sm w-10/12">{msg}</p>
-                        <Link href={'/'} className="mt-3 mb-2 bg-[#52CF50] text-white py-2 px-6 rounded-md flex justify-center items-center text-center">
-                            <span>Go Back</span>
-                        </Link>
-                    </div>
-                )} 
-                </>
-                
-            ):(
-                <div className="bg-white backdrop-blur-sm rounded-md h-3/6 w-11/12 md:w-6/12 flex justify-center items-center flex-col">
-                    <div className="rounded-md absolute">
-                        <div className="spinner">
-                            {[...Array(10)].map((_, index) => (
-                                <div key={index}></div>
-                            ))}
+                        <div className="rounded-md absolute">
+                            <div className="spinner">
+                                {[...Array(10)].map((_, index) => (
+                                    <div key={index}></div>
+                                ))}
+                            </div>
+                        </div>
+                        <h1 className="mb-2 text-black font-bold text-xl">Processing Payment...</h1>
+                        <Image src={paymentIcon} className="w-44" height={100} width={100} alt="Payment Icon" />
+                        <div className="w-full flex justify-center">
+                            <p className="text-center text-sm w-10/12">Please wait while we are processing payment.</p>
                         </div>
                     </div>
-                    <h1 className="mb-2 text-black font-bold text-xl">Processing Payment...</h1>
-                    <Image src={paymentIcon} className="w-44" height={100} width={100} alt="Payment Icon" />
-                    <div className="w-full flex justify-center">
-                        <p className="text-center text-sm w-10/12">Please wait while we are processing payment.</p>
-                    </div>
-                </div>
-            )}
+                )}
+            </div>
         </div>
     );
 }
