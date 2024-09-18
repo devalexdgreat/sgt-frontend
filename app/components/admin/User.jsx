@@ -1,7 +1,7 @@
 'use client'
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { FiPlus } from "react-icons/fi";
 import AdminNav from "../AdminNav";
 import { FaInstagram, FaRegUser, FaTiktok } from "react-icons/fa6";

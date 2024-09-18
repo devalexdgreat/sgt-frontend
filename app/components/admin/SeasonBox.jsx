@@ -3,7 +3,7 @@ import { FaChevronRight } from "react-icons/fa6";
 import { FiPlus } from "react-icons/fi";
 import AdminNav from "../AdminNav";
 import { IoCloseOutline } from "react-icons/io5";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import img from '@/public/conte.png';
 import { SiAdobeaudition } from "react-icons/si";

@@ -4,7 +4,7 @@ import AdminNav from "../AdminNav";
 import { FiPlus } from "react-icons/fi";
 import Image from "next/image";
 import conteImg from '@/public/conte.png';
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { CiImageOn } from "react-icons/ci";
 import { useRouter } from "next/navigation";
 import { RiDeleteBin6Line } from "react-icons/ri";
