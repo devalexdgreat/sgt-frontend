@@ -59,6 +59,7 @@ export default function SeasonBox({ data, sznData }) {
     const [isActive, setIsActive] = useState(false);
     const [isLoading, setIsLoading] = useState(false);
     const [isAdvance, setIsAdvance] = useState(false);
+    const [accessToken, setAccessToken] = useState('');
 
     const [activeStage, setActiveStage] = useState(sznData?.status); // Current active stage
 
@@ -70,7 +71,13 @@ export default function SeasonBox({ data, sznData }) {
         { name: 'completed', label: 'Complete', icon: BsCalendarCheckFill }
     ];
 
-    const accessToken = localStorage.getItem('accessToken');
+    useEffect(() => {
+        if (typeof window !== "undefined") {
+            const token = localStorage.getItem('accessToken');
+            setAccessToken(token);
+        }
+    }, []);
+
     const router = useRouter();
 
     const toggleModal = () => {

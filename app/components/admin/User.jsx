@@ -23,11 +23,17 @@ export default function User({ data }) {
     const [email, setEmail] = useState('');
     const [perf, setPerf] = useState('');
     const [img, setImg] = useState(null);
+    const [accessToken, setAccessToken] = useState('');
 
     const hiddenFileInput = useRef(null);
     const [fileName, setFileName] = useState(null);
 
-    const accessToken = localStorage.getItem('accessToken');
+    useEffect(() => {
+        if (typeof window !== "undefined") {
+            const token = localStorage.getItem('accessToken');
+            setAccessToken(token);
+        }
+    }, []);
 
     const handleClick = async (user_id, token) => {
         setIsLoading(true);

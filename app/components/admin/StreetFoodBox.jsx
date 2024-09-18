@@ -22,9 +22,15 @@ export default function StreetFoodBox({ data }) {
     const [foodName, setFoodName] = useState('');
     const [foodAmount, setFoodAmount] = useState('');
     const [votePower, setVotePower] = useState('');
+    const [accessToken, setAccessToken] = useState('');
     const router = useRouter();
 
-    const accessToken = localStorage.getItem('accessToken');
+    useEffect(() => {
+        if (typeof window !== "undefined") {
+            const token = localStorage.getItem('accessToken');
+            setAccessToken(token);
+        }
+    }, []);
 
     const toggleModal = () => {
         setIsOpen(prevOpen => !prevOpen);
