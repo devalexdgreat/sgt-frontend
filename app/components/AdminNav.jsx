@@ -6,29 +6,38 @@ import { useState } from "react";
 import { GoArrowLeft } from "react-icons/go";
 import { HiMenuAlt1 } from "react-icons/hi";
 import { IoClose } from "react-icons/io5";
+import { delToken } from "@/actions";
+import { useRouter } from "next/navigation";
 
 export default function AdminNav() {
-
+    const router = useRouter();
     const [menuOpen, setMenuOpen] = useState(false);
 
     const toggleMenu = () => {
         setMenuOpen(prevMenuOpen => !prevMenuOpen);
     };
 
+    const logOut = async () => {
+        await delToken();
+        localStorage.removeItem('accessToken');
+        router.refresh();
+    }
+
     return (
         <div className="w-full flex justify-center fixed text-white top-0 z-30 bg-black">
             <div className="w-11/12 flex justify-between items-center py-6">
-                <Link href={'/admin/dashboard'} className="">
+                <Link href={'/admin/dashboard'} className="flex items-center gap-1">
                     <GoArrowLeft className="w-6 h-6 hover:text-[#52CF50] duration-500" />
+                    <span>Home</span>
                 </Link>
                 <button onClick={toggleMenu} className="lg:hidden"><HiMenuAlt1 className="h-6 w-6" /></button>
-                <div className="flex gap-20">
+                <div className="md:flex gap-20 hidden">
                     <Link href={'/admin/contestants'} className="">Manage Contestants</Link>
                     <Link href={'/admin/seasons'} className="">Seasons</Link>
                     <Link href={'/admin/streetfood'} className="">Street Food</Link>
                 </div>
-                <div>
-                    <Link href={'/#signup'} className="border border-[#52CF50] text-white py-2 px-6">Logout</Link>
+                <div className="md:block hidden">
+                    <button onClick={logOut} className="border border-[#52CF50] text-white py-2 px-6">Logout</button>
                 </div>
             </div>
             {menuOpen && (
@@ -48,7 +57,7 @@ export default function AdminNav() {
                         <div className="text-center w-full flex flex-col justify-center gap-6 mb-12">
                             {/* <p>Come show your talent and win grand prizes</p> */}
                             <div className="w-full flex justify-center">
-                                <button href={'/#signup'} onClick={toggleMenu} className="border border-[#52CF50] text-white py-2 px-6 w-full text-center">Logout</button>
+                                <button onClick={logOut} className="border border-[#52CF50] text-white py-2 px-6 w-full text-center">Logout</button>
                             </div>
                         </div>
                     </div>

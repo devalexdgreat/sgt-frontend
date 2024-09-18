@@ -59,6 +59,15 @@ export default async function ContestantsSection() {
                                 <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-3 mt-3">
                                     {contestants.map((d) => (
                                         <div key={d._id} className="relative">
+                                            {d.status === 'evicted' ? (
+                                                <div className="absolute top-2 right-2 bg-red-500 text-white p-2">
+                                                    <span className="font-medium text-center">{d.status.charAt(0).toUpperCase() + d.status.slice(1)}</span>
+                                                </div>
+                                            ):(
+                                                <div className="absolute top-2 right-2 bg-green-500 text-white p-2">
+                                                    <span className="font-medium text-center">{d.status.charAt(0).toUpperCase() + d.status.slice(1)}</span>
+                                                </div>
+                                            )}
                                             <Link href={`https://www.streetgottalent.com/contestant/${d._id}`} className="top-0 absolute w-full h-full"></Link>
                                             <div className="h-80 md:h-64">
                                                 <Image src={d.imageUrl} className="h-full w-full object-cover object-top" alt="" width={1000} height={1000} />

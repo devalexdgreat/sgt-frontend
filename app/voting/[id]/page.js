@@ -35,7 +35,7 @@ export default async function Voting({ params }) {
                             <h1 className="text-center text-lg md:text-xl">Buy me street food</h1>
                         </div>
                         {streetFoods === null ? (
-                            <div className="hidden">error</div>
+                            <div className="">No street food available.</div>
                         ):(
                             <FoodOpt id={id} streetFoods={streetFoods}/>
                         )}

@@ -1,5 +1,4 @@
 'use client'
-
 import { IoCloseOutline } from "react-icons/io5";
 import AdminNav from "../AdminNav";
 import { FiPlus } from "react-icons/fi";
@@ -7,13 +6,25 @@ import Image from "next/image";
 import conteImg from '@/public/conte.png';
 import { useRef, useState } from "react";
 import { CiImageOn } from "react-icons/ci";
+import { useRouter } from "next/navigation";
+import { RiDeleteBin6Line } from "react-icons/ri";
 
-export default function StreetFoodBox() {
+const addCommasToNumber = (number) => {
+    return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+};
+
+export default function StreetFoodBox({ data }) {
 
     const [isOpen, setIsOpen] = useState(false);
+    const [isLoading, setIsLoading] = useState(false);
+    const [isDeleting, setIsDeleting] = useState(false);
     const [photo, setPhoto] = useState(null);
-    const [foodName, setFoodName] = useState(false);
-    const [foodAmount, setFoodAmount] = useState(false);
+    const [foodName, setFoodName] = useState('');
+    const [foodAmount, setFoodAmount] = useState('');
+    const [votePower, setVotePower] = useState('');
+    const router = useRouter();
+
+    const accessToken = localStorage.getItem('accessToken');
 
     const toggleModal = () => {
         setIsOpen(prevOpen => !prevOpen);
@@ -32,26 +43,84 @@ export default function StreetFoodBox() {
         const fileUploaded = e.target.files[0];
         if (fileUploaded) {
 
-            const reader = new FileReader();
-            reader.readAsDataURL(fileUploaded);
-
-            reader.onload = () => {
-
-                setPhoto(reader.result)
-                // Store the base64 string in localStorage
-                // localStorage.setItem('file', reader.result);
-                // localStorage.setItem('fileName', selectedFile.name);
-            };
-
-            reader.onerror = (error) => {
-                console.error('Error reading file:', error);
-            };
-
-            // const img = URL.createObjectURL(fileUploaded);
-            // setImage(fileUploaded);
-            // setUserData({ ...userData, img: fileUploaded })
+            setPhoto(fileUploaded);
             const fileName = fileUploaded.name;
             setFileName(fileName);
+        }
+    }
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        if(!foodName || !foodAmount || !photo || !votePower) {
+            alert('All fields are neccessary!');
+            return;
+        }
+        setIsLoading(true);
+        console.log(accessToken);
+        
+        const formData = new FormData();
+        formData.append('name', foodName);
+        formData.append('price', foodAmount);
+        formData.append('vote_power', votePower);
+        formData.append('image', photo);
+        console.log(formData);
+
+        try {
+            const response = await fetch(`${process.env.NEXT_PUBLIC_BASEURL}/streetfoods`, {
+                method: 'POST',
+                headers: {
+                    'Authorization': `Bearer ${accessToken}`
+                },
+                body: formData,
+            });
+
+            if (response.ok) {
+                const data = await response.json();
+                const successMsg = data.message;
+                setIsLoading(false);
+                alert(successMsg);
+                toggleModal();
+                router.refresh();
+            } else {
+                const data = await response.json();
+                const successMsg = data.message;
+                setIsLoading(false);
+                alert(successMsg);
+            }
+        } catch (error) {
+            console.log('Error: ', error);
+        }
+    }
+
+    const deleteFood = async (foodId) => {
+        setIsDeleting(true);
+        const isConfirmed = confirm('Are you sure you want to delete?');
+        if(!isConfirmed) {
+            return;
+        }
+        try {
+            const response = await fetch(`${process.env.NEXT_PUBLIC_BASEURL}/streetfoods/${foodId}`, {
+                method: 'DELETE',
+                headers: {
+                    'Authorization': `Bearer ${accessToken}`
+                },
+                cache: "no-store"
+            });
+
+            if(response.ok) {
+                setIsDeleting(false);
+                const data = await response.json();
+                const message = data.message;
+                alert(message);
+                router.refresh();
+            } else {
+                setIsDeleting(false);
+                const data = await response.json();
+                const errMsg = data.message;
+                alert(errMsg);
+            }
+        } catch (error) {
+            console.log('Error: ', error);
         }
     }
 
@@ -66,17 +135,29 @@ export default function StreetFoodBox() {
                     <div className="text-center md:hidden mt-2">
                         <h1 className="font-medium text-lg">Available Street Food</h1>
                     </div>
-                    <div className="flex flex-col px-2 pt-2">
-                        <div className="flex justify-between border-b border-gray-800 p-2 items-center">
-                            <div className="flex gap-2 items-center">
-                                <div className="h-12 w-24">
-                                    <Image src={conteImg} className="object-cover h-full w-full" alt="" />
-                                </div>
-                                <span>Roasted Corn</span>
-                            </div>
-                            <span className="text-green-500 font-bold">#15,500</span>
+                    {data.length < 1 ? (
+                        <div className="flex justify-center text-center pt-12">
+                            <h1>No food available at the moment😥</h1>
                         </div>
-                    </div>
+                    ):(
+                        <div className="flex flex-col px-2 pt-2">
+                            {data.map((food) => (
+                                <div key={food._id} className="flex justify-between border-b border-gray-800 p-2 items-center">
+                                    <div className="flex gap-2 items-center">
+                                        <div className="h-12 w-24">
+                                            <Image src={food.imageUrl} height={1000} width={1000} className="object-cover h-full w-full" alt="" />
+                                        </div>
+                                        <span>{food.name}</span>
+                                    </div>
+                                    <div className="flex gap-4 items-center justify-center">
+                                        <span className="text-green-500 font-bold">{addCommasToNumber(food.price)}</span>
+                                        <button className="bg-red-500 text-white p-1 rounded-sm" onClick={(e) => deleteFood(food._id)}>
+                                        <RiDeleteBin6Line /></button>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    )}
                     <button onClick={toggleModal} className="rounded-full border-green-500 border-2 h-8 w-8 absolute bottom-[10%] md:bottom-2 right-[5%] md:right-2">
                         <FiPlus className="text-green-500 h-full w-full" />
                     </button>
@@ -90,10 +171,10 @@ export default function StreetFoodBox() {
                             <div className="flex text-center justify-center items-center mt-3">
                                 <h1 className="font-medium">Add Street Food</h1>
                             </div>
-                            <input onChange={(e) =>setFoodName(e.target.value)} type="text" className="border border-black p-1.5 rounded-sm placeholder-black" placeholder="Name" />
+                            <input onChange={(e) =>setFoodName(e.target.value)} type="text" className="border border-black py-0.5 ps-1 rounded-sm placeholder-black" placeholder="Name" />
 
                             <input required ref={hiddenFileInput} type="file" name="img" onChange={handleChange} className="hidden py-2 md:py-0.5 w-full outline-none ps-1" accept="image/*" />
-                            <button onClick={handleClick} className="flex justify-between items-center border border-black text-black p-1.5 text-left rounded-sm">
+                            <button onClick={handleClick} className="flex justify-between items-center border border-black text-black py-0.5 ps-1 pe-1 text-left rounded-sm">
                                 {fileName ? (
                                     <span>{fileName}</span>
                                 ) : (
@@ -101,10 +182,10 @@ export default function StreetFoodBox() {
                                 )}
                                 <CiImageOn className="h-5 w-5" />
                             </button>
-
-                            <input onChange={(e) =>setFoodAmount(e.target.value)} type="text" className="border border-black p-1.5 rounded-sm placeholder-black" placeholder="Amount" />
+                            <input onChange={(e) =>setVotePower(e.target.value)} type="text" className="border border-black py-0.5 ps-1 rounded-sm placeholder-black" placeholder="Vote Power" />
+                            <input onChange={(e) =>setFoodAmount(e.target.value)} type="text" className="border border-black py-0.5 ps-1 rounded-sm placeholder-black" placeholder="Amount" />
                             <div className="w-full flex justify-center">
-                                <button className="text-white bg-green-500 font-bold w-6/12 my-4 py-2 px-6 text-sm rounded-sm">Submit</button>
+                                <button disabled={isLoading} onClick={handleSubmit} type="submit" className="text-white bg-green-500 font-bold w-6/12 my-4 py-2 px-6 text-sm rounded-sm">{isLoading ? 'Processing...':'Create'}</button>
                             </div>
                         </form>
                     </div>
