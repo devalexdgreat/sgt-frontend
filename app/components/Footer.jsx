@@ -15,7 +15,7 @@ export default function Footer() {
                         <Link href={'/#contestants'} className="">Contestants</Link>
                         <Link href={'/#gallery'} className="">Gallery</Link>
                         <Link href={'/contact'} className="">Contact</Link>
-                        <Link href={'/login'} className="">
+                        <Link href={'/admin/dashboard'} className="">
                         Admin
                     </Link>
                     </div>

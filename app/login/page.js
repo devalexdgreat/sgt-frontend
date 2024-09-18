@@ -93,7 +93,7 @@ export default function Login() {
                         <input onChange={(e) => setPassword(e.target.value)} type="password" placeholder="Abc123" className="text-sm py-1.5 ps-2 border border-gray-500 rounded-sm" />
                     </div>
                     <div className="w-full flex justify-center">
-                        <button disabled={isLoading} type="submit" className="bg-green-500 text-white py-2 px-8 rounded-md">{isLoading ? 'Processing...':'Login'}Login</button>
+                        <button disabled={isLoading} type="submit" className="bg-green-500 text-white py-2 px-8 rounded-md">{isLoading ? 'Processing...':'Login'}</button>
                     </div>
                 </form>
             </div>

@@ -156,7 +156,7 @@ export default function User({ data }) {
                                     <div className="flex flex-col items-center bg-white md:bg-black b border-green-500 rounded-b-md text-black md:text-white">
                                         <span className="mt-2">{user.name}</span>
                                         <span className="text-sm md:text-gray-300">Performance: <span>{user.performanceType}</span></span>
-                                        <button onClick={(e) => handleClick(user._id, accessToken)} disabled={isLoading} className="bg-red-500 text-white py-1 px-6 rounded-md mt-4 mb-2 text-sm">{isLoading === true ? 'Processing' : 'Eliminate'}</button>
+                                        <button onClick={(e) => handleClick(user._id, accessToken)} disabled={isLoading} className="bg-red-500 text-white py-1 px-6 rounded-md mt-4 mb-2 text-sm">Eliminate</button>
                                     </div>
                                 </div>
                             ))}
