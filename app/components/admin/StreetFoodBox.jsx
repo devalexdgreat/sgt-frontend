@@ -164,7 +164,7 @@ export default function StreetFoodBox({ data }) {
                             ))}
                         </div>
                     )}
-                    <button onClick={toggleModal} className="rounded-full border-green-500 border-2 h-8 w-8 absolute bottom-[10%] md:bottom-2 right-[5%] md:right-2">
+                    <button onClick={toggleModal} className="animate-pulse bg-white rounded-full border-green-500 border-2 h-12 w-12 fixed md:bottom-2 bottom-10 left-[80%] md:left-[90%]">
                         <FiPlus className="text-green-500 h-full w-full" />
                     </button>
                 </div>

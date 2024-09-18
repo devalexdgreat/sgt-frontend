@@ -141,7 +141,7 @@ export default function User({ data }) {
             <div className="text-center hidden md:block">
                 <h1 className="font-medium text-lg">Manage Contestants</h1>
             </div>
-            <div className="w-full md:w-6/12 mx-auto md:bg-black/60 backdrop-blur-sm rounded-md overflow-y-scroll scrollbar-hide h-[90vh] md:h-96 mt-12 pb-6 border border-gray-800">
+            <div className="w-full md:w-6/12 mx-auto md:bg-black/60 backdrop-blur-sm rounded-md overflow-y-scroll scrollbar-hide h-[90vh] md:h-96 mt-12 pb-6 border border-gray-800 relative">
                 <div className="text-center md:hidden mt-2 mb-2">
                     <h1 className="font-medium text-lg">Manage Contestants</h1>
                 </div>
@@ -167,7 +167,7 @@ export default function User({ data }) {
                         </div>
                     )}
                 </>
-                <button onClick={toggleModal} className="bg-white rounded-full border-green-500 border-2 h-8 w-8 absolute bottom-[10%] md:bottom-2 right-[5%] md:right-2">
+                <button onClick={toggleModal} className="animate-pulse bg-white rounded-full border-green-500 border-2 h-12 w-12 sticky md:bottom-2 bottom-5 left-[80%] md:left-[90%]">
                     <FiPlus className="text-green-500 h-full w-full" />
                 </button>
             </div>

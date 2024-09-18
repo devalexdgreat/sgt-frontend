@@ -271,7 +271,7 @@ export default function SeasonBox({ data, sznData }) {
                             </div>
                         ))}
                     </div>
-                    <button onClick={toggleModal} className="bg-white rounded-full border-green-500 border-2 h-8 w-8 absolute bottom-[10%] md:bottom-2 right-[5%] md:right-2">
+                    <button onClick={toggleModal} className="animate-pulse bg-white rounded-full border-green-500 border-2 h-12 w-12 fixed md:bottom-2 bottom-10 left-[80%] md:left-[90%]">
                         <FiPlus className="text-green-500 h-full w-full" />
                     </button>
                 </div>
@@ -279,7 +279,7 @@ export default function SeasonBox({ data, sznData }) {
             {isOpen && (
                 <div className="h-screen bg-black/10 backdrop-blur-sm w-full fixed top-0 right-0 flex justify-center items-center flex-col">
                     <span className="w-11/12 justify-center text-center flex gap-1 items-center mb-2">
-                        <MdErrorOutline className="text-red-500" />
+                        <MdErrorOutline className="text-red-500 h-6 w-6" />
                         <span className="text-red-500 font-medium">Warning: Creating new season will automatically end previous seasons</span>
                     </span>
                     <div className="bg-white w-11/12 md:w-6/12 rounded-md relative">
