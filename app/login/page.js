@@ -39,13 +39,12 @@ export default function Login() {
                 setIsLoading(false);
                 const data = await response.json();
                 const accessToken = data.accessToken;
-                const message = data.message;
-                setError('');
-                setSuccess(message);
-
                 // Store the token in local storage or session storage
                 localStorage.setItem('accessToken', accessToken);
                 await setToken(accessToken);
+                const message = data.message;
+                setError('');
+                setSuccess(message);
                 router.push("/admin/dashboard");
             } else {
                 setIsLoading(false);

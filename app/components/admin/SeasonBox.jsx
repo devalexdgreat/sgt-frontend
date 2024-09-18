@@ -341,9 +341,9 @@ export default function SeasonBox({ data, sznData }) {
                         </div>
                     ):(
                         <div className="mt-6 w-full h-screen absolute top-0 bg-black/80 backdrop-blur-sm flex justify-center items-center">
-                            <div className="bg-black/30 border border-gray-300 text-white w-11/12 md:w-5/12 backdrop-blur-sm rounded-md">
+                            <div className="bg-black/30 border border-gray-300 text-white w-11/12 md:w-5/12 backdrop-blur-sm rounded-md relative">
                                 <button onClick={reToggle} className="absolute top-1 right-1 border border-white rounded-md">
-                                    <IoCloseOutline className="h-5 w-5" />
+                                    <IoCloseOutline className="h-5 w-5 text-white" />
                                 </button>
                                 <div className="w-11/12 mx-auto py-5">
                                     <div className="w-full text-center">
