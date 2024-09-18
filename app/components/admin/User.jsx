@@ -167,7 +167,7 @@ export default function User({ data }) {
                         </div>
                     )}
                 </>
-                <button onClick={toggleModal} className="animate-pulse bg-white rounded-full border-green-500 border-2 h-12 w-12 sticky md:bottom-2 bottom-5 left-[80%] md:left-[90%]">
+                <button onClick={toggleModal} className="animate-pulse bg-white rounded-full border-green-500 border-2 h-12 w-12 sticky md:bottom-2 bottom-20 left-[80%] md:left-[90%]">
                     <FiPlus className="text-green-500 h-full w-full" />
                 </button>
             </div>
