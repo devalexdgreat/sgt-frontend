@@ -46,9 +46,6 @@ export default function Login() {
                 // Store the token in local storage or session storage
                 localStorage.setItem('accessToken', accessToken);
                 await setToken(accessToken);
-
-                // Redirect to a secured page or any other page
-                router.refresh();
                 router.push("/admin/dashboard");
             } else {
                 setIsLoading(false);

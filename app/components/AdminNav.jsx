@@ -52,7 +52,7 @@ export default function AdminNav() {
                         <div className="flex flex-col gap-8 w-full mx-auto text-lg">
                             <Link href={'/admin/contestants'} onClick={toggleMenu} className="">Manage Contestants</Link>
                             <Link href={'/admin/seasons'} onClick={toggleMenu} className="">Seasons</Link>
-                            <Link href={'/contact'} onClick={toggleMenu} className="">Street Food</Link>
+                            <Link href={'/admin/streetfood'} onClick={toggleMenu} className="">Street Food</Link>
                         </div>
                         <div className="text-center w-full flex flex-col justify-center gap-6 mb-12">
                             {/* <p>Come show your talent and win grand prizes</p> */}

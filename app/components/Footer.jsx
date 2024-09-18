@@ -11,7 +11,7 @@ export default function Footer() {
                     <Link href={'/'} className="">
                         <Image src={LogoImg} height={100} width={100} className="" alt="" />
                     </Link>
-                    <div className="mt-12 flex gap-10">
+                    <div className="mt-12 flex md:flex-row flex-col md:gap-10 gap-2 justify-center items-center">
                         <Link href={'/#contestants'} className="">Contestants</Link>
                         <Link href={'/#gallery'} className="">Gallery</Link>
                         <Link href={'/contact'} className="">Contact</Link>

@@ -36,6 +36,10 @@ export default function User({ data }) {
     }, []);
 
     const handleClick = async (user_id, token) => {
+        const isConfirmed = confirm('Are you sure you want to eliminate this contestant?');
+        if(!isConfirmed) {
+            return;
+        }
         setIsLoading(true);
         try {
             const response = await fetch(`${process.env.NEXT_PUBLIC_BASEURL}/Contestants/${user_id}/eliminate
@@ -163,7 +167,7 @@ export default function User({ data }) {
                         </div>
                     )}
                 </>
-                <button onClick={toggleModal} className="rounded-full border-green-500 border-2 h-8 w-8 absolute bottom-[10%] md:bottom-2 right-[5%] md:right-2">
+                <button onClick={toggleModal} className="bg-white rounded-full border-green-500 border-2 h-8 w-8 absolute bottom-[10%] md:bottom-2 right-[5%] md:right-2">
                     <FiPlus className="text-green-500 h-full w-full" />
                 </button>
             </div>
