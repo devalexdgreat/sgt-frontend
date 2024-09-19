@@ -156,7 +156,7 @@ export default function StreetFoodBox({ data }) {
                                         <span>{food.name}</span>
                                     </div>
                                     <div className="flex gap-4 items-center justify-center">
-                                        <span className="text-green-500 font-bold">{addCommasToNumber(food.price)}</span>
+                                        <span className="text-green-500 font-bold">₦{addCommasToNumber(food.price)} <span className="text-gray-300 font-light">(+{food.votePower} Votes)</span></span>
                                         <button className="bg-red-500 text-white p-1 rounded-sm" onClick={(e) => deleteFood(food._id)}>
                                         <RiDeleteBin6Line /></button>
                                     </div>

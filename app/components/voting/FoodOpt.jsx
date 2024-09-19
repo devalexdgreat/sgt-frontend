@@ -65,7 +65,7 @@ export default function FoodOpt({ id, streetFoods }) {
                         </div>
                         <span>{capitalizeFirstLetter(food.name)}</span>
                     </div>
-                    <span className="text-green-500 font-bold text-sm">₦{food.price}</span>
+                    <span className="text-green-500 font-bold text-sm">₦{food.price}<span className="text-gray-100 font-medium text-sm"> (+{food.votePower} Votes)</span></span>
                 </div>
             ))}
             {isModal && (
