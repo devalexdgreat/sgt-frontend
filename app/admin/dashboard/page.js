@@ -3,7 +3,7 @@ import useFetch from "@/utils/useFetch";
 
 export default async function Dashboard() {
 
-    const data = await useFetch(`contestants/current?pages=1&limit=10`);
+    const data = await useFetch(`contestants/current?pages=1&limit=20`);
 
     var contestants;
     if (data && Array.isArray(data.contestants)) {

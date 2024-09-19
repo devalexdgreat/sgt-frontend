@@ -4,9 +4,9 @@ export default function GlobalError({ error, reset }) {
   return (
     // global-error must include html and body tags
     <html>
-      <body>
-        <h2>Something went wrong!</h2>
-        <button onClick={() => reset()}>Try again</button>
+      <body className="bg-black text-white flex justify-center items-center text-center">
+        <h2 className="text-lg font-medium">Something went wrong!</h2>
+        <button onClick={() => reset()} className="bg-green-500 text-white rounded-md py-2 px-4 text-sm">Try again</button>
       </body>
     </html>
   )

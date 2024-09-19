@@ -9,7 +9,7 @@ import Link from "next/link";
 
 export default async function ContestantsSection() {
     const session = await useFetch(`seasons/current`);
-    const data = await useFetch(`contestants/current?pages=1&limit=10`);
+    const data = await useFetch(`contestants/current?pages=1&limit=20`);
 
     var contestants;
     if (data && Array.isArray(data.contestants)) {
