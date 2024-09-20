@@ -30,7 +30,7 @@
 
 export default async function useAuthFetch(arg, token) {
     // Set a timeout for the request (in milliseconds, 10000 = 10 seconds)
-    const timeout = 10000; // Adjust the timeout duration as needed
+    const timeout = 8000; // Adjust the timeout duration as needed
 
     // Timeout function
     const timeoutPromise = new Promise((_, reject) => {
