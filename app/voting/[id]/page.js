@@ -32,7 +32,7 @@ export default async function Voting({ params }) {
                     </div>
                     <div className="w-full md:w-11/12 lg:w-9/12 mx-auto">
                         <div>
-                            <h1 className="text-center text-lg md:text-xl">Buy me street food</h1>
+                            <h1 className="text-center text-lg md:text-xl">Buy me a street food</h1>
                         </div>
                         {streetFoods === null ? (
                             <div className="">No street food available.</div>

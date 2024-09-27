@@ -3,7 +3,7 @@ import Image from "next/image";
 import { useState } from "react";
 import { BsFilterLeft } from "react-icons/bs";
 import { FiSearch } from "react-icons/fi";
-import sImg from '@/public/img7.jpg';
+import sImg from '@/public/img17.jpg';
 import Link from "next/link";
 import { IoClose } from "react-icons/io5";
 
