@@ -19,6 +19,16 @@ export default async function Voting({ params }) {
         streetFoods = null;
     }
 
+    const dataC = await useFetch(`contestants/current/${id}`);
+    
+    
+    var contestant;
+    if (typeof data === 'object' && dataC && !Array.isArray(dataC.contestant)) {
+        contestant = dataC.contestant;
+    } else {
+        contestant = null;
+    }
+    console.log('I am a: ', contestant);
     return (
         <div className="w-full">
             <Navbar />
@@ -31,9 +41,14 @@ export default async function Voting({ params }) {
                         </Link>
                     </div>
                     <div className="w-full md:w-11/12 lg:w-9/12 mx-auto">
-                        <div>
-                            <h1 className="text-center text-lg md:text-xl">Buy me a street food</h1>
-                        </div>
+                        {contestant && (
+                            <div>
+                                <h1 className="text-center text-lg md:text-xl">Buy {contestant.name} a street food</h1>
+                                <div className="text-center flex justify-center mb-3 mt-3">
+                                    <span className="text-sm w-full md:w-7/12 text-gray-200 font-light">Voting with street foods is fun and easy, Fans can vote with different foods, each with its own voting power, in just a few taps!</span>
+                                </div>
+                            </div>
+                        )}
                         {streetFoods === null ? (
                             <div className="">No street food available.</div>
                         ):(
