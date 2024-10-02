@@ -13,7 +13,7 @@ export default async function ContestantsSection() {
 
     var contestants;
     if (data && Array.isArray(data.contestants)) {
-        contestants = data.contestants;
+        contestants = data.contestants; 
     } else {
         contestants = null;
     }

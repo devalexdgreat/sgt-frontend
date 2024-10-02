@@ -100,7 +100,7 @@ export default async function useFetch(arg, retries = 3, delay = 2000) {
       } catch (error) {
         console.error(`Fetch error (attempt ${i + 1}):`, error.message);
         if (i < retries - 1) {
-          // Delay before retrying
+          // Delay before retrying 
           await new Promise((resolve) => setTimeout(resolve, delay));
         } else {
           // If it's the last attempt, return an error or null
