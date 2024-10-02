@@ -25,7 +25,7 @@
 // };
 
 export default async function useFetch(arg) {
-    const timeout = 5000; // 5 seconds timeout for the fetch request
+    const timeout = 10000; // 5 seconds timeout for the fetch request
 
     const fetchWithTimeout = new Promise((resolve, reject) => {
         const timer = setTimeout(() => {
