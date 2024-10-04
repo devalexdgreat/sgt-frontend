@@ -9,7 +9,7 @@ export default function Error({ error, reset }) {
   }, [error])
  
   return (
-    <div className=''>
+    <div className='bg-black text-white '>
       <h2>Something went wrong!</h2>
       <button
         onClick={

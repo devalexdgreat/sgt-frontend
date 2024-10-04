@@ -50,7 +50,7 @@ export default async function Voting({ params }) {
                             </div>
                         )}
                         {streetFoods === null ? (
-                            <div className="">No street food available.</div>
+                            <div className="text-center">No street food available.</div>
                         ):(
                             <FoodOpt id={id} streetFoods={streetFoods}/>
                         )}

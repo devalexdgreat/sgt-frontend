@@ -69,7 +69,8 @@ export default function ConfirmVpayment({ params }) {
                                 },
                                 body: JSON.stringify({
                                     "contestant": userData.votedId,
-                                    "streetfood": userData.voteEl._id
+                                    "streetfood": userData.voteEl._id,
+                                    "qty": userData.qty
                                 }),
                             });
                             if (registerResponse.ok) {
