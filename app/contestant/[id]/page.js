@@ -3,12 +3,12 @@ import Link from "next/link";
 import { GoArrowLeft } from "react-icons/go";
 import { FaInstagram, FaTiktok } from "react-icons/fa6";
 import ShareBtn from "@/app/components/ShareBtn";
-import useFetch from "@/utils/useFetch";
 import Navbar from "@/app/components/Navbar";
+import { superFetch } from "@/actions";
 
 export default async function Contestant({ params }) {
     const { id } = params;
-    const {contestant} = await useFetch(`contestants/current/${id}`);
+    const {contestant} = await superFetch(`contestants/current/${id}`);
 
 
     return (

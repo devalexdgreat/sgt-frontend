@@ -4,14 +4,13 @@ import { GoArrowLeft } from "react-icons/go";
 import useFetch from "@/utils/useFetch";
 import FoodOpt from "@/app/components/voting/FoodOpt";
 import Navbar from "@/app/components/Navbar";
+import { superFetch } from "@/actions";
 
 export default async function Voting({ params }) {
 
     const { id } = params
 
-    const data = await useFetch(`/streetfoods`);
-    console.log(data);
-
+    const data = await superFetch(`/streetfoods`);
     var streetFoods;
     if (data && Array.isArray(data.streetFoods)) {
         streetFoods = data.streetFoods;
@@ -19,16 +18,14 @@ export default async function Voting({ params }) {
         streetFoods = null;
     }
 
-    const dataC = await useFetch(`contestants/current/${id}`);
-    
-    
+    const dataC = await superFetch(`contestants/current/${id}`);
     var contestant;
     if (typeof data === 'object' && dataC && !Array.isArray(dataC.contestant)) {
         contestant = dataC.contestant;
     } else {
         contestant = null;
     }
-    console.log('I am a: ', contestant);
+
     return (
         <div className="w-full">
             <Navbar />

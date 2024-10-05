@@ -14,20 +14,11 @@ export async function getCookies() {
     const userData = cookieStore.get('userData')
     return userData;
 }
-// token
-// export async function setToken(data) {
-//     const currentDate = new Date();
 
-//     // Calculate the date for tomorrow
-//     const tomorrow = new Date(currentDate);
-//     cookies().set('accessToken', data, { maxAge: tomorrow.toUTCString() });
-// }
-
+// For Token
 export async function setToken(data) {
     // Calculate the time for 24 hours (in seconds)
     const maxAge = 24 * 60 * 60; // 24 hours
-
-    // Set the cookie with maxAge of 24 hours
     cookies().set('accessToken', data, { maxAge: maxAge });
 }
 
@@ -40,3 +31,60 @@ export async function getToken() {
     const accessToken = cookieStore.get('accessToken').value;
     return accessToken;
 }
+ 
+export async function superFetch(arg) {
+    try {
+        const response = await fetch(`${process.env.NEXT_PUBLIC_BASEURL}/${arg}`, {
+            signal: AbortSignal.timeout(10000),
+            cache: "no-store",
+        });
+        
+        if (!response.ok) {
+            throw new Error("Failed to fetch");
+        }
+    
+        const data = await response.json();
+    
+        // Check if the data is valid
+        if (!data || typeof data !== 'object') {
+            throw new Error('Invalid data received');
+        }
+    
+        return data;
+    
+    } catch (error) {
+        console.error('Fetch error:', error.message);
+        return null;
+    }
+}
+
+export async function superAuthFetch(arg, token) {
+    try {
+        const response = await fetch(`${process.env.NEXT_PUBLIC_BASEURL}/${arg}`, {
+            method: 'GET',
+            signal: AbortSignal.timeout(10000),
+            headers: {
+                'Authorization': `Bearer ${token}`
+            },
+            cache: "no-store"
+        });
+        
+        if (!response.ok) {
+            throw new Error("Failed to fetch");
+        }
+  
+        const data = await response.json();
+    
+        // Check if the data is valid
+        if (!data || typeof data !== 'object') {
+          throw new Error('Invalid data received');
+        }
+    
+        return data.seasons;
+  
+    } catch (error) {
+        console.error('Fetch error:', error.message);
+        // Return a fallback value or handle the error as necessary
+        return null; // or { error: error.message } or a default data object
+    }
+};

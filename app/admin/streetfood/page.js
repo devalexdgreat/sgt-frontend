@@ -1,9 +1,9 @@
+import { superFetch } from "@/actions";
 import StreetFoodBox from "@/app/components/admin/StreetFoodBox";
-import useFetch from "@/utils/useFetch";
 
 export default async function StreetFood() {
 
-    const data = await useFetch(`/streetfoods`);
+    const data = await superFetch(`/streetfoods`);
     var streetFoods;
     if (data && Array.isArray(data.streetFoods)) {
         streetFoods = data.streetFoods;

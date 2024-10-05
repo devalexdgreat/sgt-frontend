@@ -13,8 +13,6 @@ export default function VotePay({ userData, handlePrev }) {
     const router = useRouter();
     
     const handlePayment = async (callback_url) => {
-        console.log(userData);
-        
         const userDataString = JSON.stringify(userData);
         localStorage.setItem('userData', userDataString);
         setIsLoading(true);

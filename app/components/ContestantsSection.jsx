@@ -3,13 +3,13 @@ import { BsFilterLeft } from "react-icons/bs";
 import Image from "next/image";
 import ContestantImg from '@/public/conte.png';
 import emptyIcon from '@/public/empty.png';
-import useFetch from "@/utils/useFetch";
 import SearchComponent from "./SearchComponent";
 import Link from "next/link";
+import { superFetch } from "@/actions";
 
 export default async function ContestantsSection() {
-    const session = await useFetch(`seasons/current`);
-    const data = await useFetch(`contestants/current?pages=1&limit=20`);
+    const session = await superFetch(`seasons/current`);
+    const data = await superFetch(`contestants/current?pages=1&limit=20`);
 
     var contestants;
     if (data && Array.isArray(data.contestants)) {
@@ -17,8 +17,6 @@ export default async function ContestantsSection() {
     } else {
         contestants = null;
     }
-    // const contestants = data.contestants;
-    console.log('i am a contestants', contestants);
 
     return (
         <div className="w-full" id="contestants">
