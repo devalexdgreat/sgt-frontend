@@ -222,15 +222,15 @@ export default function ContestantsSection({ session, contestants, pageData }) {
                             <div className="w-full flex justify-center py-4">
                                 <div className="flex gap-8 items-center pb-2">
                                     <button
-                                        className='bg-grey-500 border border-black px-2 py-2'
+                                        className={page !== 1 ? 'bg-green-500 px-2 py-2 text-white' : 'bg-green-300 text-white py-2 px-2'}
                                         onClick={() => handlePageChange(page - 1)}
                                         disabled={page === 1}
                                     >
                                         <FiChevronLeft />
                                     </button>
-                                    <button className='bg-green-500 text-white border border-black px-3 py-1'>{page}</button>
+                                    <span className='bg-green-500 text-white px-3 py-1'>{page}/{pageData.totalPages}</span>
                                     <button
-                                        className='bg-grey-500 border border-black px-2 py-2'
+                                        className={page !== pageData.totalPages ? 'bg-green-500 text-white px-2 py-2' : 'bg-green-300 text-white py-2 px-2'}
                                         onClick={() => handlePageChange(page + 1)}
                                         disabled={page === pageData.totalPages}
                                     >
