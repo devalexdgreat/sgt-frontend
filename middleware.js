@@ -9,8 +9,6 @@ export function middleware(request) {
     return NextResponse.redirect(new URL('/login', request.url));
   }
 
-  // Optionally, validate the token here if needed (e.g., decode JWT)
-
   // Allow request to proceed
   return NextResponse.next();
 }

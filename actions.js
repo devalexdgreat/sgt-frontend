@@ -1,5 +1,6 @@
 'use server'
 import { cookies } from 'next/headers'
+import axios from 'axios';
 
 export async function setCookies(data) {
     cookies().set('userData', data);
@@ -34,57 +35,53 @@ export async function getToken() {
  
 export async function superFetch(arg) {
     try {
-        const response = await fetch(`${process.env.NEXT_PUBLIC_BASEURL}/${arg}`, {
-            signal: AbortSignal.timeout(10000),
-            cache: "no-store",
+        const response = await axios.get(`${process.env.NEXT_PUBLIC_BASEURL}/${arg}`, {
+            timeout: 10000, // 10 seconds timeout for the request
         });
         
-        if (!response.ok) {
-            throw new Error("Failed to fetch");
-        }
-    
-        const data = await response.json();
-    
+        const data = response.data;
+
         // Check if the data is valid
         if (!data || typeof data !== 'object') {
             throw new Error('Invalid data received');
         }
-    
+
         return data;
-    
+
     } catch (error) {
-        console.error('Fetch error:', error.message);
+        if (error.code === 'ECONNABORTED') {
+            console.error('Fetch error: Request timed out');
+        } else {
+            console.error('Fetch error:', error.message);
+        }
         return null;
     }
 }
 
 export async function superAuthFetch(arg, token) {
     try {
-        const response = await fetch(`${process.env.NEXT_PUBLIC_BASEURL}/${arg}`, {
-            method: 'GET',
-            signal: AbortSignal.timeout(10000),
+        const response = await axios.get(`${process.env.NEXT_PUBLIC_BASEURL}/${arg}`, {
+            timeout: 10000, // 10 seconds timeout for the request
             headers: {
                 'Authorization': `Bearer ${token}`
             },
-            cache: "no-store"
         });
-        
-        if (!response.ok) {
-            throw new Error("Failed to fetch");
-        }
-  
-        const data = await response.json();
-    
+
+        const data = response.data;
+
         // Check if the data is valid
         if (!data || typeof data !== 'object') {
-          throw new Error('Invalid data received');
+            throw new Error('Invalid data received');
         }
-    
+
         return data.seasons;
-  
+
     } catch (error) {
-        console.error('Fetch error:', error.message);
-        // Return a fallback value or handle the error as necessary
-        return null; // or { error: error.message } or a default data object
+        if (error.code === 'ECONNABORTED') {
+            console.error('Fetch error: Request timed out');
+        } else {
+            console.error('Fetch error:', error.message);
+        }
+        return null; // or handle the error in a different way, such as returning a default data object
     }
-};
+}
