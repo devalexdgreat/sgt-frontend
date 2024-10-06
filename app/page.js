@@ -8,7 +8,7 @@ import { superFetch } from "@/actions";
 export default async function Home() {
   
   const session = await superFetch(`seasons/current`);
-  const data = await superFetch(`contestants/current?pages=1&limit=8`);
+  const data = await superFetch(`contestants/current?page=1&limit=8`);
 
     var contestants;
     var pageData;
@@ -19,8 +19,6 @@ export default async function Home() {
         contestants = null;
         pageData = null;
     }
-
-    console.log(pageData);
 
   return (
     <main className="overflow-hidden">

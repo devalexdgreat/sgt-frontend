@@ -102,7 +102,7 @@ import { superFetch } from "@/actions";
 import Spinner from './Spinner';
 
 export default function ContestantsSection({ session, contestants, pageData }) {
-    const [page, setPage] = useState(pageData.currentPage || 1);
+    const [page, setPage] = useState(pageData?.currentPage || 1);
     const [contestantsList, setContestantsList] = useState(contestants || []);
     const [loading, setLoading] = useState(false);
 
@@ -228,11 +228,11 @@ export default function ContestantsSection({ session, contestants, pageData }) {
                                     >
                                         <FiChevronLeft />
                                     </button>
-                                    <span className='bg-green-500 text-white px-3 py-1'>{page}/{pageData.totalPages}</span>
+                                    <span className='bg-green-500 text-white px-3 py-1'>{page}/{pageData?.totalPages}</span>
                                     <button
-                                        className={page !== pageData.totalPages ? 'bg-green-500 text-white px-2 py-2' : 'bg-green-300 text-white py-2 px-2'}
+                                        className={page !== pageData?.totalPages ? 'bg-green-500 text-white px-2 py-2' : 'bg-green-300 text-white py-2 px-2'}
                                         onClick={() => handlePageChange(page + 1)}
-                                        disabled={page === pageData.totalPages}
+                                        disabled={page === pageData?.totalPages}
                                     >
                                         <FiChevronRight />
                                     </button>
