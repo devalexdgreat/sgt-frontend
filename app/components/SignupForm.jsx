@@ -68,14 +68,14 @@ export default function SignupForm({ handleNext, userData, setUserData }) {
                         <div className="flex flex-col gap-2 w-full md:w-6/12">
                             <label className="font-semibold">Instagram</label>
                             <div className="border border-black flex justify-between items-center px-1">
-                                <input required value={userData.instagram} onChange={(e) => setUserData({ ...userData, instagram: e.target.value })} type="text" placeholder="input instagram" className="py-2 md:py-0.5 w-full outline-none ps-1" />
+                                <input required value={userData.instagram} onChange={(e) => setUserData({ ...userData, instagram: e.target.value })} type="text" placeholder="input instagram username" className="py-2 md:py-0.5 w-full outline-none ps-1" />
                                 <FaInstagram />
                             </div>
                         </div>
                         <div className="flex flex-col gap-2 w-full md:w-6/12">
                             <label className="font-semibold">Tiktok</label>
                             <div className="border border-black flex justify-between items-center px-1">
-                                <input required value={userData.tiktok} onChange={(e) => setUserData({ ...userData, tiktok: e.target.value })} type="text" placeholder="input tiktok" className="py-2 md:py-0.5 w-full outline-none ps-1" />
+                                <input required value={userData.tiktok} onChange={(e) => setUserData({ ...userData, tiktok: e.target.value })} type="text" placeholder="input tikok username" className="py-2 md:py-0.5 w-full outline-none ps-1" />
                                 <FaTiktok />
                             </div>
                         </div>

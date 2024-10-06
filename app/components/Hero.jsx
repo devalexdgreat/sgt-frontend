@@ -56,11 +56,16 @@ export default function Hero({ session }) {
             userData.instagram = 'nil';
             userData.tiktok = 'nil';
         }
+        
+        userData.instagram = userData.instagram.replace(/[@ ]/g, '');
+        userData.tiktok = userData.tiktok.replace(/[@ ]/g, '');
 
         if( !userData.name || !userData.phoneNo || !userData.email || !userData.perf || !userData.img ) {
             alert('All fields are neccessary!');
             return;
         }
+
+        
 
         setPage((currPage) => currPage + 1);
         console.log(userData);
