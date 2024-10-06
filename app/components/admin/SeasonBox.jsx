@@ -250,11 +250,11 @@ export default function SeasonBox({ data, sznData }) {
                 <div className="text-center hidden md:block">
                     <h1 className="font-medium text-lg">Seasons</h1>
                 </div>
-                <div className="w-full md:w-6/12 mx-auto md:bg-black/60 backdrop-blur-sm rounded-md overflow-y-scroll scrollbar-hide h-[90vh] md:h-96 mt-12 pb-6 border border-gray-800 relative">
+                <div className="w-full md:w-6/12 mx-auto md:bg-black/60 backdrop-blur-sm rounded-md overflow-y-scroll scrollbar-hide h-[90vh] md:h-96 mt-12 pb-12 border border-gray-800 relative">
                     <div className="text-center md:hidden mt-2">
                         <h1 className="font-medium text-lg">Seasons</h1>
                     </div>
-                    <div className="flex flex-col px-2 pt-2">
+                    <div className="flex flex-col px-2 pt-2 mb-2">
                         {data.map((el) => (
                             <div key={el._id} className="flex justify-between border-b-2 border-gray-800 px-2 py-3 items-center">
                                 <div className="flex flex-col gap-1">
@@ -271,7 +271,7 @@ export default function SeasonBox({ data, sznData }) {
                             </div>
                         ))}
                     </div>
-                    <button onClick={toggleModal} className="animate-pulse bg-white rounded-full border-green-500 border-2 h-12 w-12 fixed md:bottom-2 bottom-10 left-[80%] md:left-[90%]">
+                    <button onClick={toggleModal} className="animate-pulse bg-white rounded-full border-green-500 border-2 h-12 w-12 sticky md:bottom-2 bottom-20 left-[80%] md:left-[90%]">
                         <FiPlus className="text-green-500 h-full w-full" />
                     </button>
                 </div>

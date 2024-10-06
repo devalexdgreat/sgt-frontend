@@ -3,7 +3,7 @@ import User from "@/app/components/admin/User";
 
 export default async function Contestants() {
 
-    const data = await superFetch(`contestants/current?pages=1&limit=20`);
+    const data = await superFetch(`contestants/current`);
 
     var contestants;
     if (data && Array.isArray(data.contestants)) {

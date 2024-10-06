@@ -3,7 +3,7 @@ import DashComp from "@/app/components/admin/DashComp";
 
 export default async function Dashboard() {
 
-    const data = await superFetch(`contestants/current?pages=1&limit=20`);
+    const data = await superFetch(`contestants/current`);
 
     var contestants;
     if (data && Array.isArray(data.contestants)) {

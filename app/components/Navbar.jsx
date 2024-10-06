@@ -135,12 +135,12 @@ export default function Navbar() {
                                         <FaInstagram />
                                     </a>
                                 </Link>
-                                <Link href={'https://www.facebook.com/streetsgottalent_'} className="" passHref legacyBehavior>
+                                <Link href={'https://www.facebook.com/xpataintment?mibextid=kFxxJD'} className="" passHref legacyBehavior>
                                     <a target="_blank">
                                         <FaFacebookF />
                                     </a>
                                 </Link>
-                                <Link href={'https://www.facebook.com/xpataintment?mibextid=kFxxJD'} className="" passHref legacyBehavior>
+                                <Link href={'https://www.youtube.com/channel/UClJBwdmqra_UoYkBC5Odnjg'} className="" passHref legacyBehavior>
                                     <a target="_blank">
                                         <FaYoutube />
                                     </a>
@@ -222,27 +222,6 @@ export default function Navbar() {
                             )}
                         </div>
                     </div>
-                    {/* <span className="w-full flex justify-between items-center">
-                        <span className="font-semibold">Results for {queryMob}</span>
-                        <button onClick={toggleSearchMob} className="flex justify-center items-center bg-red-500 text-white rounded-md"><IoClose /></button>
-                    </span>
-                    {queryResult && (
-                        <div className="flex flex-col mt-4 gap-2">
-                            {queryResult.map((r) => (
-                                <div key={r._id} className="flex gap-1.5 text-sm relative hover:bg-[#EAFFEA] p-1 rounded-md hover:duration-700">
-                                    <Link onClick={toggleSearch} href={'#'} className="top-0 absolute w-full h-full"></Link>
-                                    <div className="h-12 w-12">
-                                        <Image src={r.imageUrl} className="rounded-md h-full w-full object-cover object-top" alt="" width={1000} height={1000} />
-                                    </div>
-                                    <div className="flex flex-col justify-center">
-                                        <h1 className="font-bold">{r.name}</h1>
-                                        <p className="text-gray-700 text-sm">{r.performanceType}</p>
-                                    </div>
-                                </div>
-                            ))}
-                        </div>
-                    )} */}
-                    
                 </div>
             )}
         </div>

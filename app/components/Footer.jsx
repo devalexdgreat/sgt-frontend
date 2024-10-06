@@ -31,12 +31,12 @@ export default function Footer() {
                             <FaInstagram />
                         </a>
                     </Link>
-                    <Link href={'https://www.facebook.com/streetsgottalent_'} className="" passHref legacyBehavior>
+                    <Link href={'https://www.facebook.com/xpataintment?mibextid=kFxxJD'} className="" passHref legacyBehavior>
                         <a target="_blank">
                             <FaFacebookF />
                         </a>
                     </Link>
-                    <Link href={'https://www.facebook.com/xpataintment?mibextid=kFxxJD'} className="" passHref legacyBehavior>
+                    <Link href={'https://www.youtube.com/channel/UClJBwdmqra_UoYkBC5Odnjg'} className="" passHref legacyBehavior>
                         <a target="_blank">
                             <FaYoutube />
                         </a>

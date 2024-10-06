@@ -6,6 +6,7 @@ import Link from "next/link";
 import { GoArrowLeft } from "react-icons/go";
 import { BiSolidError } from "react-icons/bi";
 import { setToken } from "@/actions";
+import axios from "axios";
 
 export default function Login() {
 
@@ -17,46 +18,90 @@ export default function Login() {
 
     const router = useRouter();
 
+    // const handleSubmit = async (e) => {
+    //     e.preventDefault();
+    //     setIsLoading(true);
+
+    //     if(!email || !password) {
+    //         setError('All fields are required!');
+    //         return;
+    //     }
+
+    //     try {
+    //         const response = await axios.post(
+    //             `${process.env.NEXT_PUBLIC_BASEURL}/admins/login`,
+    //             { email, password },
+    //             {
+    //                 headers: {
+    //                     'Content-Type': 'application/json',
+    //                 },
+    //             }
+    //         );
+        
+    //         if(response.ok) {
+    //             setError('');
+    //             const data = await response.json();
+    //             const accessToken = data.accessToken;
+
+    //             // Store the token in local storage or session storage
+    //             localStorage.setItem('accessToken', accessToken);
+    //             await setToken(accessToken);
+
+    //             router.push("/admin/dashboard");
+    //         } else {
+    //             setIsLoading(false);
+    //             const errorData = await response.json();
+    //             setError(errorData.message);
+    //         }
+
+    //     } catch (error) {
+    //         setIsLoading(false);
+    //         console.log(error);
+    //         setError(error.message);
+    //     }
+    // }
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         setIsLoading(true);
-
-        if(!email || !password) {
+    
+        if (!email || !password) {
             setError('All fields are required!');
+            setIsLoading(false); // Set loading false if fields are missing
             return;
         }
-
+    
         try {
-            const response = await fetch(`${process.env.NEXT_PUBLIC_BASEURL}/admins/login`, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({email, password}),
-            });
-        
-            if(response.ok) {
-                setError('');
-                const data = await response.json();
-                const accessToken = data.accessToken;
-
-                // Store the token in local storage or session storage
-                localStorage.setItem('accessToken', accessToken);
-                await setToken(accessToken);
-
-                router.push("/admin/dashboard");
-            } else {
-                setIsLoading(false);
-                const errorData = await response.json();
-                setError(errorData.message);
-            }
-
+            const response = await axios.post(
+                `${process.env.NEXT_PUBLIC_BASEURL}/admins/login`,
+                { email, password },
+                {
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                }
+            );
+    
+            setError('');
+            const accessToken = response.data.accessToken;
+    
+            // Store the token in local storage or session storage
+            localStorage.setItem('accessToken', accessToken);
+            await setToken(accessToken);
+    
+            router.push("/admin/dashboard");
         } catch (error) {
             setIsLoading(false);
-            console.log(error);
-            setError(error.message);
+            if (error.response) {
+                // If response was received and error originated from server
+                setError(error.response.data.message);
+            } else {
+                // If no response or any other error
+                setError(error.message);
+            }
+            console.error('Login error:', error);
         }
-    }
+    };
 
     return (
         <div className="w-full h-screen bg-black hero-bg flex justify-center items-center">
