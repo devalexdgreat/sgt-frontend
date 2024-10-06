@@ -101,7 +101,7 @@ export default function SearchComponent() {
                 </div>
             )}
             {isOpen && (
-                <div className="bg-white p-2 border absolute top-10 rounded-md w-full">
+                <div className="bg-white p-2 border absolute top-10 rounded-md w-full z-20">
                     <span className="w-full flex justify-between items-center">
                         <span className="font-semibold">Results for {query}</span>
                         <button onClick={toggleSearch} className="flex justify-center items-center bg-red-500 text-white rounded-md"><IoClose /></button>
@@ -126,19 +126,19 @@ export default function SearchComponent() {
                 </div>
             )}
             {notFound && (
-                <div className="bg-gray-100 p-2 border absolute top-10 rounded-md w-full flex items-center justify-between">
+                <div className="bg-gray-100 p-2 border absolute top-10 rounded-md w-full flex items-center justify-between z-20">
                     <h1>Not found 😭🔍</h1>
                     <button onClick={toggleNotFound} className="flex justify-center items-center bg-red-500 text-white rounded-md"><IoClose /></button>
                 </div>
             )}
             {isLoading && (
-                <div className="bg-gray-100 p-2 border absolute top-10 rounded-md w-full flex items-center justify-between">
+                <div className="bg-gray-100 p-2 border absolute top-10 rounded-md w-full flex items-center justify-between z-20">
                     <h1>Searching...🔍</h1>
                     <button onClick={toggleIsLoad} className="flex justify-center items-center bg-red-500 text-white rounded-md"><IoClose /></button>
                 </div>
             )}
             {error && (
-                <div className="bg-red-500 text-white p-2 border absolute top-10 rounded-md w-full flex items-center justify-between">
+                <div className="bg-red-500 text-white p-2 border absolute top-10 rounded-md w-full flex items-center justify-between z-20">
                     <h1>Error 😭: {errorMsg}</h1>
                     <button onClick={toggleError} className="flex justify-center items-center border border-white text-white rounded-full"><IoClose className="text-white" /></button>
                 </div>

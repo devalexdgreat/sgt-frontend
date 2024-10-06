@@ -103,32 +103,39 @@ export default function FoodOpt({ id, streetFoods }) {
                         </div>
                         <span>{capitalizeFirstLetter(food.name)}</span>
                     </div>
-                    <div className="flex items-center gap-1">
-                        <span className="text-green-500 font-bold text-sm">
-                            ₦{(food.price) * (increments[food._id] || 1)}
+                    <div className="flex items-center gap-2">
+                        <span className="text-green-500 font-bold text-sm flex flex-col items-center">
+                            <span>
+                                ₦{(food.price) * (increments[food._id] || 1)}
+                            </span>
                             <span className="text-gray-100 font-medium text-sm">
-                                (+{(food.votePower) * (increments[food._id] || 1)} Votes)
+                                +{(food.votePower) * (increments[food._id] || 1)} Votes
                             </span>
                         </span>
                         <div className="flex items-center">
                             {isBuy === food._id ? (
                                 <div className="flex items-center gap-2">
                                     <div className="font-bold flex items-center gap-1">
-                                        <button
-                                            onClick={() => decre(food._id)}
-                                            className="bg-green-500 text-white py-1 px-3 rounded-md"
-                                        >
-                                            -
-                                        </button>
-                                        <span className="px-2">
+                                        <div className='flex flex-col-reverse md:flex-row gap-1'>
+                                            <button
+                                                onClick={() => decre(food._id)}
+                                                className="bg-green-500 text-white py-1 px-3 rounded-md"
+                                            >
+                                                -
+                                            </button>
+                                            <span className="px-2 hidden md:flex items-center justify-center text-center">
+                                                <span>{increments[food._id] || 1}</span>
+                                            </span>
+                                            <button
+                                                onClick={() => incre(food._id)}
+                                                className="bg-green-500 text-white py-1 px-3 rounded-md"
+                                            >
+                                                +
+                                            </button>   
+                                        </div>
+                                        <span className="px-2 md:hidden">
                                             {increments[food._id] || 1}
                                         </span>
-                                        <button
-                                            onClick={() => incre(food._id)}
-                                            className="bg-green-500 text-white py-1 px-3 rounded-md"
-                                        >
-                                            +
-                                        </button>
                                     </div>
                                     <button
                                         onClick={() => toggleModal(food._id)}
