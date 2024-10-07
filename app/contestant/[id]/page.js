@@ -8,8 +8,14 @@ import { superFetch } from "@/actions";
 
 export default async function Contestant({ params }) {
     const { id } = params;
-    const {contestant} = await superFetch(`contestants/current/${id}`);
-
+    const data = await superFetch(`contestants/current/${id}`);
+    
+    var contestant;
+    if (data && !Array.isArray(data.contestant)) {
+        contestant = data.contestant;
+    } else {
+        contestant = null;
+    }
 
     return (
         <div className="w-full">
@@ -34,13 +40,6 @@ export default async function Contestant({ params }) {
                                         <Link href={`/voting/${contestant._id}`} className=" bg-[#52CF50] text-white py-1 px-2 rounded-md hover:bg-[#52CF50]/90 duration-500">Vote for me</Link>
                                         <ShareBtn id={id} />
                                     </div>
-                                    {/* <div>
-                                        <h1>Share Vote Link</h1>
-                                        <div className="flex gap-2 w-full">
-                                            <button className=" bg-[#52CF50] text-white py-1 px-2 rounded-md hover:bg-[#52CF50]/90 duration-500">Vote for me</button>
-                                            <ShareBtn id={id} />
-                                        </div>
-                                    </div> */}
                                 </div>
                             </div>
                             <div className="mt-12 flex flex-col gap-3">

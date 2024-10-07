@@ -36,7 +36,7 @@ export async function getToken() {
 export async function superFetch(arg) {
     try {
         const response = await axios.get(`${process.env.NEXT_PUBLIC_BASEURL}/${arg}`, {
-            timeout: 10000, // 10 seconds timeout for the request
+            timeout: 8000, // 10 seconds timeout for the request
         });
         
         const data = response.data;
@@ -61,7 +61,7 @@ export async function superFetch(arg) {
 export async function superAuthFetch(arg, token) {
     try {
         const response = await axios.get(`${process.env.NEXT_PUBLIC_BASEURL}/${arg}`, {
-            timeout: 10000, // 10 seconds timeout for the request
+            timeout: 8000, // 10 seconds timeout for the request
             headers: {
                 'Authorization': `Bearer ${token}`
             },

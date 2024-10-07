@@ -9,7 +9,7 @@ export default function Error({ error, reset }) {
   }, [error])
  
   return (
-    <div className='bg-black h-screen flex justify-center items-center text-center flex-col text-white gap-2'>
+    <div className='fixed top-0 w-full bg-black h-screen flex justify-center items-center text-center flex-col text-white gap-2'>
       <h2>Something went wrong!</h2>
       <button
         className='bg-green-500 text-white rounded-md py-1.5 px-6'
