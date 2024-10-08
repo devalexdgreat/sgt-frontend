@@ -5,6 +5,7 @@ import { FaInstagram, FaTiktok } from "react-icons/fa6";
 import ShareBtn from "@/app/components/ShareBtn";
 import Navbar from "@/app/components/Navbar";
 import { superFetch } from "@/actions";
+import ErrorElement from "@/app/components/ErrorElement";
 
 export default async function Contestant({ params }) {
     const { id } = params;
@@ -27,7 +28,7 @@ export default async function Contestant({ params }) {
                             <GoArrowLeft className="w-6 h-6 hover:text-[#52CF50] duration-500" />
                         </Link>
                     </div>
-                    {contestant && (
+                    {contestant !== null ? (
                         <div>
                             <div className="flex flex-col md:flex-row gap-3 w-full">
                                 <div className="h-52 md:h-52 w-full md:w-64">
@@ -71,6 +72,8 @@ export default async function Contestant({ params }) {
                                 </div>
                             </div>
                         </div>
+                    ):(
+                        <ErrorElement />
                     )}
                 </div>
             </div>
