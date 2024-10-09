@@ -195,7 +195,7 @@ export default function ContestantsSection({ session, contestants, pageData }) {
                                                 </div>
                                             )}
                                             <Link
-                                                href={`https://www.streetgottalent.com/contestant/${d._id}`}
+                                                href={`/contestant/${d._id}`}
                                                 className="top-0 absolute w-full h-full"
                                             ></Link>
                                             <div className="h-80 md:h-64">
