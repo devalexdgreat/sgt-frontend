@@ -63,7 +63,10 @@ export async function superAuthFetch(arg, token) {
         const response = await axios.get(`${process.env.NEXT_PUBLIC_BASEURL}/${arg}`, {
             timeout: 8000, // 10 seconds timeout for the request
             headers: {
-                'Authorization': `Bearer ${token}`
+                'Authorization': `Bearer ${token}`,
+                'Cache-Control': 'no-cache, no-store, must-revalidate',
+                'Pragma': 'no-cache',
+                'Expires': '0'
             },
         });
 
