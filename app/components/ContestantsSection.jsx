@@ -201,7 +201,7 @@ export default function ContestantsSection({ session, contestants, pageData }) {
                                             <div className="h-80 md:h-64">
                                                 <Image
                                                     src={d.imageUrl}
-                                                    className="h-full w-full object-cover object-top"
+                                                    className="h-full w-full object-cover object-center"
                                                     alt=""
                                                     width={1000}
                                                     height={1000}

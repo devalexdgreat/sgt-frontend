@@ -9,8 +9,8 @@ export default async function Contestant({ params }) {
     const { id } = params;
     const data = await superFetch(`contestants/current/${id}`);
     
-    var contestant;
-    if (data && !Array.isArray(data.contestant)) {
+    let contestant;
+    if (data && typeof data.contestant === 'object' && !Array.isArray(data.contestant) && data.contestant !== null) {
         contestant = data.contestant;
     } else {
         contestant = null;

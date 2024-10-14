@@ -17,8 +17,8 @@ export default function ContestantBox({ contestant, id }) {
                     {contestant !== null ? (
                         <div>
                             <div className="flex flex-col md:flex-row gap-3 w-full">
-                                <div className="h-52 md:h-52 w-full md:w-64">
-                                    <Image src={contestant.imageUrl} alt="" className="h-full w-full object-cover object-top rounded-md" height={1000} width={1000} />
+                                <div className="h-80 md:h-52 w-full md:w-64">
+                                    <Image src={contestant.imageUrl} alt="" className="h-full w-full object-cover object-center rounded-md" height={1000} width={1000} />
                                 </div>
                                 <div className="flex flex-col justify-center w-full">
                                     <h1 className="font-bold">{contestant.name}</h1>
