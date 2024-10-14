@@ -1,17 +1,22 @@
-// middleware.js
 import { NextResponse } from 'next/server';
 
 export function middleware(request) {
-  const token = request.cookies.get('accessToken'); // Assuming the token is stored in cookies
+  const token = request.cookies.get('accessToken')?.value; // Get token from cookies
+  
+  // Skip token check on the login page to avoid interference
+  if (request.nextUrl.pathname === '/login') {
+    return NextResponse.next();
+  }
 
-  // If the token is present, allow the user to proceed to the requested page
+  // If token exists, allow access
   if (token) {
     return NextResponse.next();
   }
 
-  // If the token is missing, redirect to the login page with a redirect back to the requested URL
+  // If no token, redirect to login with redirect parameter
   const loginUrl = new URL('/login', request.url);
   loginUrl.searchParams.set('redirect', request.nextUrl.pathname);
+
   return NextResponse.redirect(loginUrl);
 }
 

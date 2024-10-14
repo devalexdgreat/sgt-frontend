@@ -88,7 +88,6 @@ export default function Login() {
             // Store the token in local storage or session storage
             localStorage.setItem('accessToken', accessToken);
             await setToken(accessToken);
-            router.refresh();
             router.push("/admin/dashboard");
         } catch (error) {
             setIsLoading(false);
