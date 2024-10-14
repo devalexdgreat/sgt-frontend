@@ -22,7 +22,8 @@ export default function ContestantBox({ contestant, id }) {
                                 </div>
                                 <div className="flex flex-col justify-center w-full">
                                     <h1 className="font-bold">{contestant.name}</h1>
-                                    <span className="mb-3 text-sm text-gray-400">Performance: {contestant.performanceType}</span>
+                                    <span className="text-sm text-gray-400">Performance: {contestant.performanceType}</span>
+                                    <span className="mb-3 text-sm text-gray-400">Votes: {contestant.votes}</span>
                                     <div className="flex gap-2 w-full">
                                         <Link href={`/voting/${contestant._id}`} className=" bg-[#52CF50] text-white py-1 px-2 rounded-md hover:bg-[#52CF50]/90 duration-500">Vote for me</Link>
                                         <ShareBtn id={id} />
