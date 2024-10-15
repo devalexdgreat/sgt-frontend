@@ -214,6 +214,9 @@ export default function ContestantsSection({ session, contestants, pageData }) {
                                                 <span>
                                                     Performance Type: <span className="font-bold">{d.performanceType}</span>
                                                 </span>
+                                                <span>
+                                                    Votes: <span className="font-bold">{d.votes}</span>
+                                                </span>
                                             </div>
                                         </div>
                                     ))}
