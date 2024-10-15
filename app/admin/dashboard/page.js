@@ -4,7 +4,7 @@ import DashComp from "@/app/components/admin/DashComp";
 export default async function Dashboard() {
 
     const data = await superFetch(`contestants/current`);
-
+    
     var contestants;
     if (data && Array.isArray(data.contestants)) {
         contestants = data.contestants;
@@ -12,6 +12,7 @@ export default async function Dashboard() {
         contestants = [];
     }
 
+    console.log('Data: ', contestants);
 
     const lData = await superFetch(`contestants/current?leaderboard='s'`);
 
