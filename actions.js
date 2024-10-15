@@ -37,7 +37,7 @@ export async function superFetch(arg) {
     try {
         const response = await axios.get(`${process.env.NEXT_PUBLIC_BASEURL}/${arg}`, {
             timeout: 8000,
-            header: {
+            headers: {
                 'Cache-Control': 'no-cache, no-store, must-revalidate',
                 'Pragma': 'no-cache',
                 'Expires': '0'
