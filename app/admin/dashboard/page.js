@@ -12,8 +12,6 @@ export default async function Dashboard() {
         contestants = [];
     }
 
-    console.log('Data: ', contestants);
-
     const lData = await superFetch(`contestants/current?leaderboard='s'`);
 
     var lCon;
