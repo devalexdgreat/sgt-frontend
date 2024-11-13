@@ -35,17 +35,18 @@ export async function getToken() {
  
 export async function superFetch(arg) {
     try {
-        const response = await fetch(`${process.env.NEXT_PUBLIC_BASEURL}/${arg}`, { cache: 'no-store' })
-        // const response = await axios.get(`${process.env.NEXT_PUBLIC_BASEURL}/${arg}`, {
-        //     timeout: 8000,
-        //     headers: {
-        //         'Cache-Control': 'no-cache, no-store, must-revalidate',
-        //         'Pragma': 'no-cache',
-        //         'Expires': '0'
-        //     } // 10 seconds timeout for the request
-        // });
+        // const response = await fetch(`${process.env.NEXT_PUBLIC_BASEURL}/${arg}`, { cache: 'no-store' })
+        const response = await axios.get(`${process.env.NEXT_PUBLIC_BASEURL}/${arg}`, {
+            timeout: 8000,
+            headers: {
+                'Cache-Control': 'no-cache, no-store, must-revalidate',
+                'Pragma': 'no-cache',
+                'Expires': '0'
+            } // 10 seconds timeout for the request
+        });
         
-        const data = await response.json();
+        // const data = await response.json();
+        const data = response.data;
         console.log(data);
 
         // Check if the data is valid
