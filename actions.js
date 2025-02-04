@@ -47,7 +47,6 @@ export async function superFetch(arg) {
         
         // const data = await response.json();
         const data = response.data;
-        console.log(data);
 
         // Check if the data is valid
         if (!data || typeof data !== 'object') {
