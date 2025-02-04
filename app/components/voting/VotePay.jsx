@@ -47,7 +47,7 @@ export default function VotePay({ userData, handlePrev }) {
                 {userData !== null && (
                     <>
                         <h1 className="font-normal text-xl mb-4">Pay: <span className="font-bold">{addCommasToNumber(userData.voteEl.price*userData.qty)} NGN</span></h1>
-                        <p className="text-gray-500 mt-2 text-sm">
+                        <p className="text-gray-500 text-sm">
                             You&rsquo;ll be redirected to <span className="font-semibold text-green-500">Flutterwave</span> to complete payment. 
                             Please wait for confirmation before closing this page.
                         </p>
