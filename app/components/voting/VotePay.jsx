@@ -46,6 +46,10 @@ export default function VotePay({ userData, handlePrev }) {
             <div className="w-11/12 mx-auto flex flex-col gap-3 text-sm py-12">
                 {userData !== null && (
                     <h1 className="font-normal text-xl mb-4">Pay: <span className="font-bold">{addCommasToNumber(userData.voteEl.price*userData.qty)} NGN</span></h1>
+                    <p className="text-gray-500 mt-2 text-sm">
+                        You'll be redirected to <span className="font-semibold text-green-500">Flutterwave</span> to complete payment. 
+                        Please wait for confirmation before closing this page.
+                    </p>
                 )}
                 
                 <button onClick={(e) => handlePayment(`${process.env.NEXT_PUBLIC_VREDIR_URL}`)} className="w-full bg-green-500 py-3 px-4 text-white rounded-md">
