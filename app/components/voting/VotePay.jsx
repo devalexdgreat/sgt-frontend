@@ -45,11 +45,13 @@ export default function VotePay({ userData, handlePrev }) {
             <button onClick={handlePrev} className="absolute top-2 left-2 rounded-sm text-black"><GoArrowLeft className="h-6 w-6 hover:text-green-500 duration-500" /></button>
             <div className="w-11/12 mx-auto flex flex-col gap-3 text-sm py-12">
                 {userData !== null && (
-                    <h1 className="font-normal text-xl mb-4">Pay: <span className="font-bold">{addCommasToNumber(userData.voteEl.price*userData.qty)} NGN</span></h1>
-                    <p className="text-gray-500 mt-2 text-sm">
-                        You&rsquo;ll be redirected to <span className="font-semibold text-green-500">Flutterwave</span> to complete payment. 
-                        Please wait for confirmation before closing this page.
-                    </p>
+                    <>
+                        <h1 className="font-normal text-xl mb-4">Pay: <span className="font-bold">{addCommasToNumber(userData.voteEl.price*userData.qty)} NGN</span></h1>
+                        <p className="text-gray-500 mt-2 text-sm">
+                            You&rsquo;ll be redirected to <span className="font-semibold text-green-500">Flutterwave</span> to complete payment. 
+                            Please wait for confirmation before closing this page.
+                        </p>
+                    </>
                 )}
                 
                 <button onClick={(e) => handlePayment(`${process.env.NEXT_PUBLIC_VREDIR_URL}`)} className="w-full bg-green-500 py-3 px-4 text-white rounded-md">
