@@ -64,7 +64,6 @@ export default function Navbar() {
             if(res.ok) {
                 const data = await res.json();
                 const result = data.contestants;
-                console.log(result);
                 setIsLoadingMob(false);
                 setQueryResultMob(result);
                 setIsResult(true);
