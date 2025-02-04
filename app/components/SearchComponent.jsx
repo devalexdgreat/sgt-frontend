@@ -53,7 +53,6 @@ export default function SearchComponent() {
             if(res.ok) {
                 const data = await res.json();
                 const result = data.contestants;
-                console.log(result);
                 setIsLoading(false);
                 setQueryResult(result);
                 setIsOpen(true);
