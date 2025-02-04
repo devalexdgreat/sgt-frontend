@@ -68,7 +68,6 @@ export default function Hero({ session }) {
         
 
         setPage((currPage) => currPage + 1);
-        console.log(userData);
     }
 
     const handleNextPc = () => {
@@ -83,7 +82,6 @@ export default function Hero({ session }) {
         }
 
         setPagePc((currPage) => currPage + 1);
-        console.log(userData);
     }
 
     const handlePrev = () => {
