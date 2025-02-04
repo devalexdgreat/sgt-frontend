@@ -67,8 +67,16 @@ export default function FoodOpt({ id, streetFoods }) {
             userData.name = 'nil';
         }
 
+        // Email validation regex pattern
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
         if (!userData.name || !userData.email) {
             alert('All fields are necessary!');
+            return;
+        }
+
+        if (!emailRegex.test(userData.email)) {
+            alert('Please enter a valid email address!');
             return;
         }
 
