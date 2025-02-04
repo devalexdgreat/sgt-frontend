@@ -108,7 +108,6 @@ export default function SeasonBox({ data, sznData }) {
             setIsComplete(false);
         }
         setModal(prevOpen => !prevOpen);
-        console.log('Season Data: ', sznData);
     };
 
     const toggleOn = () => {
