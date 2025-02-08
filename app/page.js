@@ -8,7 +8,7 @@ import { superFetch } from "@/actions";
 export default async function Home() {
   
   const session = await superFetch(`seasons/current`);
-  const data = await superFetch(`contestants/current?page=1&limit=8`);
+  const data = await superFetch(`contestants/current?page=1&limit=5`);
 
     var contestants;
     var pageData;

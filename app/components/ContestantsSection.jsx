@@ -17,7 +17,7 @@ export default function ContestantsSection({ session, contestants, pageData }) {
     // Handle fetching data for the current page
     const fetchContestants = async (page) => {
         setLoading(true);
-        const data = await superFetch(`contestants/current?page=${page}&limit=${pageData.limit}`);
+        const data = await superFetch(`contestants/current?page=${page}&limit=${5}`);
         if (data) {
             setContestantsList(data.contestants);
             setLoading(false);
@@ -93,10 +93,19 @@ export default function ContestantsSection({ session, contestants, pageData }) {
                                                     </span>
                                                 </div>
                                             ) : (
-                                                <div className="absolute top-2 right-2 bg-green-500 text-white p-2">
-                                                    <span className="font-medium text-center">
-                                                        {d.status.charAt(0).toUpperCase() + d.status.slice(1)}
-                                                    </span>
+                                                <div className='flex gap-2 items-center absolute top-2 right-2'>
+                                                    {d.group != null && (
+                                                        <div className="bg-green-500 text-white p-2">
+                                                            <span className="font-medium text-center">
+                                                                {d.group.charAt(0).toUpperCase() + d.group.slice(1)}
+                                                            </span>
+                                                        </div>
+                                                    )}
+                                                    <div className="bg-green-500 text-white p-2">
+                                                        <span className="font-medium text-center">
+                                                            {d.status.charAt(0).toUpperCase() + d.status.slice(1)}
+                                                        </span>
+                                                    </div>
                                                 </div>
                                             )}
                                             <Link
