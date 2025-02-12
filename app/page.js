@@ -1,11 +1,11 @@
 'use client'
-import Navbar from "@/components/Navbar";
-import Hero from "@/components/Hero";
-import ContestantsSection from "@/components/ContestantsSection";
-import Gallery from "@/components/Gallery";
+import Navbar from "./components/Navbar";
+import Hero from "./components/Hero";
+import ContestantsSection from "./components/ContestantsSection";
+import Gallery from "./components/Gallery";
 import { cache, useEffect, useState } from "react";
-import Spinner from "@/components/Spinner";
-import Footer from "@/components/Footer";
+import Spinner from "./components/Spinner";
+import Footer from "./components/Footer";
 
 export default function Home() {
 
