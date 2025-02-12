@@ -46,7 +46,6 @@ export default function Home() {
         <Hero session={szn} />
         <ContestantsSection session={szn} contestants={data.contestants} pageData={data.pagination}/>
         <Gallery />
-        <Footer />
     </main>
   );
 }
